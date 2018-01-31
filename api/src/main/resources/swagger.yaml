@@ -1,0 +1,148 @@
+swagger: '2.0'
+info:
+  title: Application Management API
+  version: 0.0.1
+  description: This document contains the specification for the Application API.
+basePath: /application-api/v1
+tags:
+  - name: application
+    description: Provides access to application management.
+schemes:
+  - http
+paths:
+  '/applications/{stage}':
+    get:
+      tags:
+        - application
+      summary: Returns all or filtered applications.
+      description: ''
+      operationId: getApplications
+      produces:
+        - application/json
+      parameters:
+        - name: stage
+          in: path
+          description: Stage of the application
+          required: true
+          type: string
+          enum:
+            - dev
+            - test
+            - prod
+        - name: id
+          in: query
+          description: Filter the result collection by providing one or more application ids.
+          type: array
+          items:
+            type: string
+          collectionFormat: multi
+          required: false
+        - name: offset
+          in: query
+          description: Paginate the result collection with the given offset.
+          type: integer
+          required: false
+        - name: limit
+          in: query
+          description: Limits the result collection.
+          type: integer
+          required: false
+      responses:
+        '200':
+          description: Successful operation.
+          schema:
+            title: Application list
+            type: array
+            items:
+              $ref: '#/definitions/Application'
+        '400':
+          description: Bad Request - Invalid parameter value.
+        '401':
+          description: Unauthorized - No user credentials where provided.
+        '404':
+          description: Not Found - No result has been found matching the request criteria.
+    post:
+      tags:
+        - "application"
+      summary: Registers a new application.
+      description: ''
+      operationId: createApplication
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: stage
+          in: path
+          description: Stage of the application
+          required: true
+          type: string
+          enum:
+            - dev
+            - test
+            - prod
+        - name: application
+          in: body
+          description: Application to create.
+          required: true
+          schema:
+            $ref: '#/definitions/Application'
+      responses:
+        '201':
+          description: Successful operation.
+          schema:
+            title: Application id.
+            type: string
+        '400':
+          description: Bad Request - Invalid parameter value.
+        '401':
+          description: Unauthorized - No user credentials where provided.
+
+definitions:
+  Application:
+    type: object
+    properties:
+      applicationId:
+        type: string
+        description: Application id, provided during creation of the application in the developer portal.
+      name:
+        type: string
+        description: Application name, visible in the application launchpad.
+      description:
+        type: string
+        description: Application description.
+      launchUrl:
+        type: string
+        description: URL used in the application launchpad to navigate to the start page of the
+          application.
+      iconUrl:
+        type: string
+        description: URL of the icon used in the application launchpad on the application tile.
+      requiredRoles:
+        type: array
+        description: List of role names which have access the application.
+        items:
+          type: string
+      thirdPartyProvider:
+        type: boolean
+        description: Indicator for a third-party application.
+      providerName:
+        type: string
+        description: URL to the third-party application provider webpage.
+      providerIconUrl:
+        type: string
+        description: URL to the third-party provider icon which is displayed on the application tile in the application launchpad.
+    xml:
+      name: Application
+    example:
+      applicationId: '0815'
+      name: My Simple Application
+      description: I'm an awesome demonstration application.
+      iconUrl: 'https://cdn.holisticon.de/mdi-arrow'
+      launchUrl: 'https://apps.holisticon.de/my-app/'
+      requiredRoles:
+        - user
+        - app-user
+      thirdPartyProvider: false
+      providerName: Holisticon
+      providerIconUrl: ''

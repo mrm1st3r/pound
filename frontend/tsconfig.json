@@ -1,0 +1,26 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "baseUrl": ".", // This must be specified if "paths" is.
+    "paths": { // relatice to baseUrl
+      "*": [
+        "src/*",
+        "src-gen/*"
+      ]
+    },
+    "lib": [
+      "es2017",
+      "dom"
+    ]
+  }
+}
