@@ -20,7 +20,8 @@
 
   <modules>
     <module>api</module>
-    <module>backend</module>
+    <module>backend-rest</module>
+    <module>backend</module>    
     <module>assembly</module>
   </modules>
 
@@ -37,6 +38,11 @@
         <artifactId>backend</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <dependency>
+        <groupId>de.holisticon.reference-arch</groupId>
+        <artifactId>backend-rest</artifactId>
+        <version>${project.version}</version>
+      </dependency>      
       <dependency>
         <groupId>de.holisticon.reference-arch</groupId>
         <artifactId>api</artifactId>

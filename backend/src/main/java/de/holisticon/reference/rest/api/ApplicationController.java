@@ -1,8 +1,8 @@
 package de.holisticon.reference.rest.api;
 
 import de.holisticon.reference.data.Application;
+import de.holisticon.reference.data.ApplicationConverter;
 import de.holisticon.reference.data.ApplicationRepository;
-import de.holisticon.reference.rest.converter.ApplicationConverter;
 import de.holisticon.reference.rest.model.ApplicationDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
