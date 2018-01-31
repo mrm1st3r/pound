@@ -21,7 +21,7 @@
   <modules>
     <module>api</module>
     <module>backend-rest</module>
-    <module>backend</module>    
+    <module>backend</module>
     <module>assembly</module>
   </modules>
 
@@ -42,7 +42,7 @@
         <groupId>de.holisticon.reference-arch</groupId>
         <artifactId>backend-rest</artifactId>
         <version>${project.version}</version>
-      </dependency>      
+      </dependency>
       <dependency>
         <groupId>de.holisticon.reference-arch</groupId>
         <artifactId>api</artifactId>
@@ -224,4 +224,27 @@
       </modules>
     </profile>
   </profiles>
+
+
+  <repositories>
+    <repository>
+      <id>spring-milestones</id>
+      <name>Spring Milestones</name>
+      <url>https://repo.spring.io/libs-milestone</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>spring-milestones</id>
+      <name>Spring Milestones</name>
+      <url>https://repo.spring.io/libs-milestone</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+
 </project>
