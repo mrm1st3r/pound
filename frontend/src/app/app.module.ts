@@ -1,8 +1,10 @@
+import { BASE_PATH as backendUrl } from './../../src-gen/variables';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { ApiModule } from '../../src-gen';
 
 
 @NgModule({
@@ -10,9 +12,12 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ApiModule,
   ],
-  providers: [],
+  providers: [
+    { provide: backendUrl, useValue: 'http://localhost:8080' },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
