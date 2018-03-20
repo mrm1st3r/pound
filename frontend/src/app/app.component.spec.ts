@@ -1,28 +1,31 @@
 import { HttpClientModule } from '@angular/common/http';
-import { ApplicationService } from './../../src-gen/api/application.service';
 import { TestBed, async } from '@angular/core/testing';
+import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
+import { ButtonModule } from 'primeng/button';
+import { ApplicationService } from './../../src-gen/api/application.service';
 import { AppComponent } from './app.component';
-import {ButtonModule} from 'primeng/button';
+import { SERVICE_MOCKS } from '../mocks';
 
 describe('AppComponent', () => {
 
-  let fixture,component;
+  let fixture, component;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         HttpClientModule,
         ButtonModule,
+        LoggerModule.forRoot({level: NgxLoggerLevel.DEBUG, serverLogLevel: NgxLoggerLevel.OFF}),
       ],
       declarations: [
         AppComponent
       ],
       providers: [
-        ApplicationService
+        SERVICE_MOCKS,
       ]
     }).compileComponents();
-     fixture = TestBed.createComponent(AppComponent);
-     component = fixture.debugElement.componentInstance;
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.debugElement.componentInstance;
   }));
 
   it('should create the app', async(() => {
