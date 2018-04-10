@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApplicationService } from '../../src-gen';
+import { NGXLogger } from 'ngx-logger';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +10,11 @@ import { ApplicationService } from '../../src-gen';
 export class AppComponent {
   title = 'app';
 
-  constructor(private serviceClient: ApplicationService) {
+  constructor(private serviceClient: ApplicationService,
+    private logger: NGXLogger) {
 
   }
   printApplications(): void {
-    this.serviceClient.getApplications('test').subscribe(apps => apps.forEach(app => console.log('Application:', app.name)));
+    this.serviceClient.getApplications('test').subscribe(apps => apps.forEach(app => this.logger.debug('Application:', app.name)));
   }
 }
