@@ -11,3 +11,6 @@ install:
 
 script:
   - export DISPLAY=:99.0 && ./mvnw clean package -q
+
+after_success: 
+  - bash <(curl -s https://codecov.io/bash) 

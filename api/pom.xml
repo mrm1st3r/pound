@@ -10,11 +10,4 @@
   <artifactId>api</artifactId>
   <packaging>jar</packaging>
 
-  <properties>    
-  </properties>
-
-  <build>
-    <plugins>
-    </plugins>
-  </build>
 </project>

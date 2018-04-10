@@ -10,7 +10,7 @@
   <artifactId>assembly</artifactId>
   <packaging>jar</packaging>
 
-  <properties>    
+  <properties>
   </properties>
 
   <dependencies>
@@ -21,7 +21,7 @@
     <dependency>
       <groupId>de.holisticon.reference-arch</groupId>
       <artifactId>backend</artifactId>
-    </dependency>    
+    </dependency>
   </dependencies>
   <build>
     <plugins>
@@ -34,8 +34,8 @@
               <goal>repackage</goal>
             </goals>
           </execution>
-        </executions>        
-      </plugin>    
+        </executions>
+      </plugin>
     </plugins>
   </build>
 </project>
