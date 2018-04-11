@@ -73,6 +73,7 @@
               <language>spring</language>
               <apiPackage>de.holisticon.reference.rest.api</apiPackage>
               <modelPackage>de.holisticon.reference.rest.model</modelPackage>
+              <templateDirectory>src/main/resources/swaggerTemplates</templateDirectory>
               <modelNamePrefix></modelNamePrefix>
               <modelNameSuffix>Dto</modelNameSuffix>
               <!--

@@ -38,10 +38,11 @@ public class ApplicationController implements ApplicationsApi {
 
     @Override
     public ResponseEntity<List<ApplicationDto>> getApplications(final String stage, @Valid final Optional<List<String>> id, @Valid final Optional<Integer> offset, @Valid final Optional<Integer> limit) {
-
-        // TODO paging support, parameter support
-
         final Iterable<Application> all = repository.findAll();
         return ResponseEntity.ok(applicationConverter.toDtos(all));
+    }
+
+    public String getConstantValue() {
+        return "VALUE";
     }
 }

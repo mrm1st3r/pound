@@ -25,10 +25,6 @@ paths:
           description: Stage of the application
           required: true
           type: string
-          enum:
-            - dev
-            - test
-            - prod
         - name: id
           in: query
           description: Filter the result collection by providing one or more application ids.
@@ -77,10 +73,6 @@ paths:
           description: Stage of the application
           required: true
           type: string
-          enum:
-            - dev
-            - test
-            - prod
         - name: application
           in: body
           description: Application to create.
