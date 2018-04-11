@@ -35,17 +35,18 @@ timeout(60) {
 
       stage('Unit-Tests') {
         sh "./mvnw verify -Dmaven.test.failure.ignore"
-        junit healthScaleFactor: 1.0, testResults: '*/target/surefire-reports/TEST*.xml'
       }
 
       stage('Backend I-Tests') {
         sh "./mvnw verify -Pitest -Dmaven.test.failure.ignore -DskipFrontend"
-        jacoco sourcePattern: '**/src/main/java, **/src/main/kotlin'
       }
 
     } catch (e) {
       rocketSend channel: 'holi-demos', emoji: ':rotating_light:', message: 'Fehler'
       throw e
+    } finally {
+      junit healthScaleFactor: 1.0, testResults: '*/target/surefire-reports/TEST*.xml'
+      jacoco sourcePattern: '**/src/main/java, **/src/main/kotlin'
     }
   }
 }
