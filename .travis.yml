@@ -1,21 +1,18 @@
 sudo: required
 dist: trusty
-
 language: java
 jdk:
-  - oraclejdk8
+- oraclejdk8
 install:
-  - export MAVEN_SKIP_RC=true
-  - export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=512m"
-  - "export PATH=`pwd`/bin:$PATH"
+- export MAVEN_SKIP_RC=true
+- export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=512m"
+- export PATH=`pwd`/bin:$PATH
 addons:
   sonarcloud:
-    organization: "holisticon-github"
+    organization: holisticon-ref-arch-guthub
     token:
-      secure: "y6z4L3+A1ArQwyatMeezel54QiXD+OdTYFDzC3/mXq38u37nuE2O0ww85xaK4AhbooxJWdni2RUArjic0niZGD8m2yJbf/mfZdCGy0UC6Ogiw+q8k124FvCHItX2RyIGBTzlKziTYdq+nPWRtOlumPKj6Q/8PqBeWcqp1oiplm20gtcTy8mDPWxW2hlhDfIc3xdpK7N0eCGTjboF+aFdVQygp9KIFBIqqxgSHSfa5jS9PokvvdDxhseb7wtKX6eQ+B7gKwEijHhg/2FaQ8rAbxnI6KkzLQ4fcvpaeTZtYk4v616Z4X4S1kFecWF/1c3+o44/2YsswWuRLrOmHiVuvjkUCpdfY2v1cEVBEfBajkM7NdBoCnxKhd4QEMEeK0aGQCBsgYXWnhF3hwTnGlL53/RF3RoObp6y4VKH/J0umidLpTk0G25xbOJsDfD/Yxey3UUyMxg00L4k9fZAoZwYzkCnb3hUAJ2XS9+lm4CUyn+PjCt6FP5xI5KT1wxTc0FrqVU7wEdxR6IJhPQsLkKuUPA0aLT4+rU7KYG80TgCD/w8/wxH3+6gp9ndYC7zjJYSJc0SQ2r7jpSO1v0mvyqoMdaswaXfQjMoCblto0ZszVcEXu8W40826XVDVu2/sdsSVIpypmYlT5Nlv5P1YOn7W5kv3GhpbW3AqErXeBrYXvA="
-
+      secure: lX6Dh+Hs+3EwiV78vHChqazuE0E7ZzbtV+AEuK23S4uXMduCZCJF+oHntsxPNtZf+Es6bEFopY5I7KJTItmutYSHXWIjA6kvah+OzDibMBgp9PHfWDHcV9ayrnlqp/aFsjCLIH79WzvxskRbe2K0Bz9g6QHHdWBzUlstuzW7m8RiqTOXEiiD2ym2G2MD2QWm76pOXShaAfnYetg9Ut8ugQ/8J4GNDbEnN0pP3OhTRrxBs2yq7HBWuvQhD7LieReF9/+2fSvQOFers5+ykpYSFmClffudVHYF7cHnk3EeLQff79SypoqjBcCUjaZdHRkwQphrGS+Zf/1j1L/Bpo6gavEl4NUoOLZyfwgctzkNAZIq+fhpqNuwE+JyZJTDcKGyZ5HIIa667IRipXS9F3/0pcrphDxtWtl01T7wmt9ARoaVPLnJeaNB1CslImq6/nTU4/XELb10ZA0O3VqC7LM1NimvbUShbeDz1v2C/rrrLhm0qM5wX1XKN8axH5bY9DUh+EBT5BbKwpm9mA+7Jm17bzBjIV1JHvHXyJ+pMicFNixF7fI2REk/cwcmV6D4dDz76zUID4CDZ3toHk8lMKdu4HqpnKFfM5k7jIq+XOMhIlKc07sRZZBCdrhhDatOiJ6z7JQbfWCwIz6LjoM92KlmNHE7d6INEWVKyOkldG9k8Ao=
 script:
-  - export DISPLAY=:99.0 && ./mvnw clean verify -q sonar:sonar
-
+- export DISPLAY=:99.0 && ./mvnw clean verify -q sonar:sonar
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+- bash <(curl -s https://codecov.io/bash)
