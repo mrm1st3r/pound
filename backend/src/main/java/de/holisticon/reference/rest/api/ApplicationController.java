@@ -17,6 +17,8 @@ import java.util.Optional;
 @RestController
 public class ApplicationController implements ApplicationsApi {
 
+    private static final String CONSTANT = "VALUE";
+
     @Autowired
     private ApplicationRepository repository;
 
@@ -26,13 +28,11 @@ public class ApplicationController implements ApplicationsApi {
 
     @Override
     public ResponseEntity<String> createApplication(final String stage, @Valid final ApplicationDto application) {
-
         final Application entity = applicationConverter.toEntity(application);
         final Application result = repository.save(entity);
         final URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{id}")
                 .buildAndExpand(result.getId()).toUri();
-
         return ResponseEntity.created(location).build();
     }
 
@@ -43,6 +43,6 @@ public class ApplicationController implements ApplicationsApi {
     }
 
     public String getConstantValue() {
-        return "VALUE";
+        return CONSTANT;
     }
 }
