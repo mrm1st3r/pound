@@ -45,7 +45,7 @@ timeout(60) {
       rocketSend channel: 'holi-demos', emoji: ':rotating_light:', message: 'Fehler'
       throw e
     } finally {
-      junit healthScaleFactor: 1.0, testResults: '*/target/surefire-reports/TEST*.xml'
+      junit healthScaleFactor: 1.0, testResults: '*/target/surefire-reports/TEST*.xml, */target/failsafe-reports/TEST*.xml'
       jacoco sourcePattern: '**/src/main/java, **/src/main/kotlin'
     }
   }
