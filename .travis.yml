@@ -9,7 +9,7 @@ install:
 - export PATH=`pwd`/bin:$PATH
 addons:
   sonarcloud:
-    organization: holisticon-ref-arch-guthub
+    organization: holisticon-github
     token:
       secure: lX6Dh+Hs+3EwiV78vHChqazuE0E7ZzbtV+AEuK23S4uXMduCZCJF+oHntsxPNtZf+Es6bEFopY5I7KJTItmutYSHXWIjA6kvah+OzDibMBgp9PHfWDHcV9ayrnlqp/aFsjCLIH79WzvxskRbe2K0Bz9g6QHHdWBzUlstuzW7m8RiqTOXEiiD2ym2G2MD2QWm76pOXShaAfnYetg9Ut8ugQ/8J4GNDbEnN0pP3OhTRrxBs2yq7HBWuvQhD7LieReF9/+2fSvQOFers5+ykpYSFmClffudVHYF7cHnk3EeLQff79SypoqjBcCUjaZdHRkwQphrGS+Zf/1j1L/Bpo6gavEl4NUoOLZyfwgctzkNAZIq+fhpqNuwE+JyZJTDcKGyZ5HIIa667IRipXS9F3/0pcrphDxtWtl01T7wmt9ARoaVPLnJeaNB1CslImq6/nTU4/XELb10ZA0O3VqC7LM1NimvbUShbeDz1v2C/rrrLhm0qM5wX1XKN8axH5bY9DUh+EBT5BbKwpm9mA+7Jm17bzBjIV1JHvHXyJ+pMicFNixF7fI2REk/cwcmV6D4dDz76zUID4CDZ3toHk8lMKdu4HqpnKFfM5k7jIq+XOMhIlKc07sRZZBCdrhhDatOiJ6z7JQbfWCwIz6LjoM92KlmNHE7d6INEWVKyOkldG9k8Ao=
 script:

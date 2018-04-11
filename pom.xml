@@ -142,7 +142,7 @@
   </dependencyManagement>
 
   <build>
-    <defaultGoal>clean org.jacoco:prepare-agent package</defaultGoal>
+    <defaultGoal>clean install</defaultGoal>
     <pluginManagement>
       <plugins>
         <plugin>
@@ -395,6 +395,11 @@
                 <goal>test-compile</goal>
               </goals>
               <configuration>
+                <compilerPlugins>
+                  <plugin>spring</plugin>
+                  <plugin>jpa</plugin>
+                  <plugin>no-arg</plugin>
+                </compilerPlugins>
                 <sourceDirs>
                   <sourceDir>${project.basedir}/src/test/kotlin</sourceDir>
                   <sourceDir>${project.basedir}/src/test/java</sourceDir>
