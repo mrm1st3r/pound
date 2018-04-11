@@ -8,5 +8,5 @@ import org.springframework.beans.factory.annotation.Autowired
 
 @SpringBootApplication
 open class TestApplication() {
-  
+
 }
