@@ -12,6 +12,20 @@
   <packaging>jar</packaging>
 
   <properties>
+    <sonar.projectKey>de.holisticon.reference-arch:backend</sonar.projectKey>
+    <sonar.projectName>Reference Architecture Backend</sonar.projectName>
+    <sonar.projectVersion>${project.version}</sonar.projectVersion>
+
+    <sonar.links.homepage>https://github.com/holisticon/reference-arch</sonar.links.homepage>
+    <sonar.links.ci>https://travis-ci.org/holisticon/reference-arch</sonar.links.ci>
+    <sonar.links.scm>https://github.com/holisticon/reference-arch</sonar.links.scm>
+    <sonar.links.issue>https://github.com/holisticon/reference-arch/issues</sonar.links.issue>
+
+    <sonar.sources>src/main</sonar.sources>
+    <sonar.tests>src/test</sonar.tests>
+    <sonar.binaries>target/classes</sonar.binaries>
+    <sonar.junit.reportsPath>reports/java/surefire-reports</sonar.junit.reportsPath>
+    <sonar.jacoco.reportPath>reports/java/jacoco.exec</sonar.jacoco.reportPath>
   </properties>
 
   <dependencies>
