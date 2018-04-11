@@ -38,7 +38,7 @@ timeout(60) {
       }
 
       stage('Backend I-Tests') {
-        sh "./mvnw verify -Pitest -Dmaven.test.failure.ignore -DskipFrontend"
+        sh "./mvnw verify -Pitest -Dmaven.test.failure.ignore"
       }
 
     } catch (e) {
