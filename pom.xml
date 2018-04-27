@@ -10,9 +10,9 @@
 
   <properties>
     <java.version>1.8</java.version>
-    <kotlin.version>1.2.21</kotlin.version>
+    <kotlin.version>1.2.40</kotlin.version>
     <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
-    <springboot.version>2.0.0.RC1</springboot.version>
+    <springboot.version>2.0.1.RELEASE</springboot.version>
     <springcloud.version>Finchley.M5</springcloud.version>
     <springfox-swagger2.version>2.8.0</springfox-swagger2.version>
     <org.mapstruct.version>1.2.0.Final</org.mapstruct.version>
