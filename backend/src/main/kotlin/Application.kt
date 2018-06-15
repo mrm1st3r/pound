@@ -32,5 +32,3 @@ interface ApplicationConverter {
   fun integerListToStringList(integers: List<Int>): List<String>
 
 }
-
-
