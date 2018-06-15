@@ -20,7 +20,7 @@ class ApplicationController(
 ) : ApplicationsApi  {
 
   companion object {
-      val CONSTANT = "VALUE"
+      const val CONSTANT = "VALUE"
   }
 
   override fun createApplication(
