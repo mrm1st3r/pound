@@ -360,7 +360,6 @@
               <configuration>
                 <sourceDirs>
                   <sourceDir>src/main/kotlin</sourceDir>
-                  <sourceDir>src/main/java</sourceDir>
                 </sourceDirs>
                 <annotationProcessorPaths>
                   <annotationProcessorPath>
@@ -385,7 +384,6 @@
                 <jvmTarget>1.8</jvmTarget>
                 <sourceDirs>
                   <sourceDir>${project.basedir}/src/main/kotlin</sourceDir>
-                  <sourceDir>${project.basedir}/src/main/java</sourceDir>
                 </sourceDirs>
               </configuration>
             </execution>
