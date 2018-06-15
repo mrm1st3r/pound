@@ -15,10 +15,10 @@
   </properties>
 
   <dependencies>
-    <dependency>
+<!--    <dependency>
       <groupId>com.ltaake.pound</groupId>
       <artifactId>frontend</artifactId>
-    </dependency>
+    </dependency>-->
     <dependency>
       <groupId>com.ltaake.pound</groupId>
       <artifactId>backend</artifactId>
