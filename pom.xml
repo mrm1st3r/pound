@@ -3,9 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>de.holisticon.reference-arch</groupId>
-  <artifactId>reference-arch-parent</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <groupId>com.ltaake.pound</groupId>
+  <artifactId>pound-parent</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
@@ -33,22 +33,22 @@
     <dependencies>
       <!-- Project -->
       <dependency>
-        <groupId>de.holisticon.reference-arch</groupId>
+        <groupId>com.ltaake.pound</groupId>
         <artifactId>frontend</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>de.holisticon.reference-arch</groupId>
+        <groupId>com.ltaake.pound</groupId>
         <artifactId>backend</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>de.holisticon.reference-arch</groupId>
+        <groupId>com.ltaake.pound</groupId>
         <artifactId>backend-rest</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>de.holisticon.reference-arch</groupId>
+        <groupId>com.ltaake.pound</groupId>
         <artifactId>api</artifactId>
         <version>${project.version}</version>
       </dependency>

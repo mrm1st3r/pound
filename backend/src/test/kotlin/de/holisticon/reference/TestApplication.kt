@@ -1,9 +1,6 @@
-package de.holisticon.reference
+package com.ltaake.pound
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
-import com.fasterxml.jackson.databind.DeserializationFeature
-import com.fasterxml.jackson.databind.ObjectMapper
-import org.springframework.beans.factory.annotation.Autowired
 
 
 @SpringBootApplication

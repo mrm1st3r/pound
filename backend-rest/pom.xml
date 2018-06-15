@@ -3,9 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>de.holisticon.reference-arch</groupId>
-    <artifactId>reference-arch-parent</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <groupId>com.ltaake.pound</groupId>
+    <artifactId>pound-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
   </parent>
 
   <artifactId>backend-rest</artifactId>
@@ -13,7 +13,7 @@
 
   <dependencies>
     <dependency>
-      <groupId>de.holisticon.reference-arch</groupId>
+      <groupId>com.ltaake.pound</groupId>
       <artifactId>api</artifactId>
       <scope>provided</scope>
     </dependency>
@@ -42,7 +42,7 @@
             <configuration>
               <artifactItems>
                 <artifactItem>
-                  <groupId>de.holisticon.reference-arch</groupId>
+                  <groupId>com.ltaake.pound</groupId>
                   <artifactId>api</artifactId>
                   <version>${project.version}</version>
                   <type>jar</type>
@@ -71,8 +71,8 @@
             <configuration>
               <inputSpec>${project.build.directory}/swagger-model/swagger.yaml</inputSpec>
               <language>spring</language>
-              <apiPackage>de.holisticon.reference.rest.api</apiPackage>
-              <modelPackage>de.holisticon.reference.rest.model</modelPackage>
+              <apiPackage>com.ltaake.pound.rest.api</apiPackage>
+              <modelPackage>com.ltaake.pound.rest.model</modelPackage>
               <templateDirectory>src/main/resources/swaggerTemplates</templateDirectory>
               <modelNamePrefix></modelNamePrefix>
               <modelNameSuffix>Dto</modelNameSuffix>
@@ -89,8 +89,8 @@
               <configOptions>
                 <interfaceOnly>true</interfaceOnly>
                 <singleContentTypes>true</singleContentTypes>
-                <basePackage>de.holisticon.reference.rest</basePackage>
-                <configPackage>de.holisticon.reference.rest</configPackage>
+                <basePackage>com.ltaake.pound.rest</basePackage>
+                <configPackage>com.ltaake.pound.rest</configPackage>
                 <swaggerDocketConfig>true</swaggerDocketConfig>
 
                 <!-- this uses Java8+ types and sets java8 option to true -->

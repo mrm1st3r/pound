@@ -1,9 +1,9 @@
-package de.holisticon.reference.rest.api
+package com.ltaake.pound.rest.api
 
-import de.holisticon.reference.data.Application
-import de.holisticon.reference.data.ApplicationConverter
-import de.holisticon.reference.data.ApplicationRepository
-import de.holisticon.reference.rest.model.ApplicationDto
+import com.ltaake.pound.data.Application
+import com.ltaake.pound.data.ApplicationConverter
+import com.ltaake.pound.data.ApplicationRepository
+import com.ltaake.pound.rest.model.ApplicationDto
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith

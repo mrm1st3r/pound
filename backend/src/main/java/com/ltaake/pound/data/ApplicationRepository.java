@@ -1,4 +1,4 @@
-package de.holisticon.reference.data;
+package com.ltaake.pound.data;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 

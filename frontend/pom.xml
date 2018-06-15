@@ -3,9 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>de.holisticon.reference-arch</groupId>
-    <artifactId>reference-arch-parent</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <groupId>com.ltaake.pound</groupId>
+    <artifactId>pound-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
   </parent>
 
   <artifactId>frontend</artifactId>
@@ -17,7 +17,7 @@
   <dependencies>
     <dependency>
       <!-- required to make sure reactor order is correct -->
-      <groupId>de.holisticon.reference-arch</groupId>
+      <groupId>com.ltaake.pound</groupId>
       <artifactId>api</artifactId>
       <scope>provided</scope>
     </dependency>
@@ -49,7 +49,7 @@
             <configuration>
               <artifactItems>
                 <artifactItem>
-                  <groupId>de.holisticon.reference-arch</groupId>
+                  <groupId>com.ltaake.pound</groupId>
                   <artifactId>api</artifactId>
                   <version>${project.version}</version>
                   <type>jar</type>

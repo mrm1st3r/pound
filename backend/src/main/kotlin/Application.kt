@@ -1,6 +1,6 @@
-package de.holisticon.reference.data
+package com.ltaake.pound.data
 
-import de.holisticon.reference.rest.model.ApplicationDto
+import com.ltaake.pound.rest.model.ApplicationDto
 import org.mapstruct.InheritInverseConfiguration
 import org.mapstruct.Mapper
 import org.mapstruct.Mapping
