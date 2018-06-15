@@ -12,14 +12,14 @@
   <packaging>jar</packaging>
 
   <properties>
-    <sonar.projectKey>de.holisticon.reference-arch:backend</sonar.projectKey>
-    <sonar.projectName>Reference Architecture Backend</sonar.projectName>
+    <sonar.projectKey>com.ltaake.pound:backend</sonar.projectKey>
+    <sonar.projectName>Pound Backend</sonar.projectName>
     <sonar.projectVersion>${project.version}</sonar.projectVersion>
 
-    <sonar.links.homepage>https://github.com/holisticon/reference-arch</sonar.links.homepage>
-    <sonar.links.ci>https://travis-ci.org/holisticon/reference-arch</sonar.links.ci>
-    <sonar.links.scm>https://github.com/holisticon/reference-arch</sonar.links.scm>
-    <sonar.links.issue>https://github.com/holisticon/reference-arch/issues</sonar.links.issue>
+    <sonar.links.homepage>https://github.com/mrm1st3r/pound</sonar.links.homepage>
+    <sonar.links.ci>https://travis-ci.org/mrm1st3r/pound</sonar.links.ci>
+    <sonar.links.scm>https://github.com/mrm1st3r/pound</sonar.links.scm>
+    <sonar.links.issue>https://github.com/mrm1st3r/pound/issues</sonar.links.issue>
 
     <sonar.sources>src/main</sonar.sources>
     <sonar.tests>src/test</sonar.tests>
