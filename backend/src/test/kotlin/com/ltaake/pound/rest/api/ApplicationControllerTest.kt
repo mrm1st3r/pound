@@ -9,7 +9,7 @@ import org.mockito.Mockito.mock
 
 class ApplicationControllerTest {
 
-    private var controller: ApplicationController? = null
+    private lateinit var controller: ApplicationController
     @Before
     fun init() {
         controller = ApplicationController(mock(ApplicationRepository::class.java), mock(ApplicationConverter::class.java))
@@ -18,6 +18,6 @@ class ApplicationControllerTest {
 
     @Test
     fun shouldCreateApplication() {
-        assertThat(controller!!.getConstantValue()).isEqualTo("VALUE")
+        assertThat(controller.getConstantValue()).isEqualTo("VALUE")
     }
 }
