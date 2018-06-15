@@ -5,3 +5,23 @@
 # Pound
 
 > A minimal user interface for asterisk
+
+## Modules
+Following a quick overview of the project modules,
+what they're doing and how they are connected with each other: 
+
+- **api**  
+  The REST interface definition, using swagger.
+
+- **backend-rest**  
+  Generated sources for the backend, based on the *api* module.
+
+- **backend**  
+  The spring boot based backend application, depending on the *backend-rest* module for it's interface.
+
+- **frontend**  
+  The angular based frontend application, depending on the *api* module for communication with the backend.
+
+- **assembly**  
+  The main module used to start the application. Contains the spring boot main class and depends on *backend* and *frontend*.
+
