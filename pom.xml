@@ -425,7 +425,7 @@
   </build>
 
   <profiles>
-    <profile>
+<!--    <profile>
       <id>frontend</id>
       <activation>
         <property>
@@ -435,7 +435,7 @@
       <modules>
         <module>frontend</module>
       </modules>
-    </profile>
+    </profile>-->
 
     <profile>
       <id>itest</id>
