@@ -1,5 +1,5 @@
 CREATE TABLE cdr (
-  calldate datetime NOT NULL default '0000-00-00 00:00:00',
+  calldate datetime NOT NULL default CURRENT_TIMESTAMP,
   clid varchar(80) NOT NULL default '',
   src varchar(80) NOT NULL default '',
   dst varchar(80) NOT NULL default '',
@@ -16,3 +16,10 @@ CREATE TABLE cdr (
   uniqueid varchar(32) NOT NULL default '',
   userfield varchar(255) NOT NULL default ''
 );
+
+
+INSERT INTO cdr (src, dst)
+  VALUES ('123456789', '987654321');
+
+INSERT INTO cdr (src, dst)
+  VALUES ('12345', '54321');

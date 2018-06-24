@@ -1,16 +1,13 @@
 package com.ltaake.pound.rest.api
 
-import com.ltaake.pound.data.Application
-import com.ltaake.pound.data.ApplicationConverter
-import com.ltaake.pound.data.ApplicationRepository
+import com.ltaake.pound.Application
+import com.ltaake.pound.ApplicationConverter
 import com.ltaake.pound.rest.model.ApplicationDto
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mockito.`when`
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.boot.test.mock.mockito.MockBean
 import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.core.ParameterizedTypeReference
 import org.springframework.http.HttpMethod
@@ -29,15 +26,12 @@ open class ApplicationControllerITest {
   @Autowired
   private lateinit var converter: ApplicationConverter
 
-  @MockBean
-  private lateinit var repository: ApplicationRepository
-
   @Test
   fun `controller respond to request`() {
     // given
     val application = Application(id = 1, name = "APP", description = "Reference application")
     val applicationDto = converter.toDto(application)
-    `when`(repository.findAll()).thenReturn(arrayOf(application).toMutableList())
+//    `when`(repository.findAll()).thenReturn(arrayOf(application).toMutableList())
 
     // when
     val response = restTemplate.exchange("/applications/test", HttpMethod.GET, null, object : ParameterizedTypeReference<List<ApplicationDto>>() {})

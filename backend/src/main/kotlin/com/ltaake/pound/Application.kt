@@ -1,4 +1,4 @@
-package com.ltaake.pound.data
+package com.ltaake.pound
 
 import com.ltaake.pound.rest.model.ApplicationDto
 import org.mapstruct.InheritInverseConfiguration
