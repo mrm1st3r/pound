@@ -11,10 +11,10 @@ import org.springframework.test.context.junit4.SpringRunner
 @RunWith(SpringRunner::class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("itest")
-class CdrRepositoryTest {
+class CallRepositoryTest {
 
     @Autowired
-    lateinit var repository: CdrRepository
+    lateinit var repository: CallRepository
 
     @Test
     fun `should select calls`() {

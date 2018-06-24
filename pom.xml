@@ -73,8 +73,18 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-jooq</artifactId>
         <version>${springboot.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
-
+      <dependency>
+        <groupId>org.jooq</groupId>
+        <artifactId>jooq</artifactId>
+        <version>${jooq.version}</version>
+      </dependency>
 
       <!-- Kotlin -->
       <dependency>

@@ -71,7 +71,7 @@ definitions:
         type: string
         description: Call destination
       duration:
-        type: string
+        type: integer
         description: Call duration in seconds
       dcontext:
         type: string

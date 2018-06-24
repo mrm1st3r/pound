@@ -10,9 +10,6 @@
   <artifactId>assembly</artifactId>
   <packaging>jar</packaging>
 
-  <properties>
-  </properties>
-
   <dependencies>
 <!--    <dependency>
       <groupId>com.ltaake.pound</groupId>
