@@ -1,38 +1,38 @@
 swagger: '2.0'
 info:
-  title: Application Management API
+  title: Pound API for Asterisk
   version: 0.0.1
-  description: This document contains the specification for the Application API.
-basePath: /application-api/v1
+  description: >-
+    This document contains the specification for the Pound API that let's you
+    view the call history from Asterisk.
+basePath: /pound-api/v1
 tags:
-  - name: application
-    description: Provides access to application management.
+  - name: call
+    description: Provides access to the call history.
 schemes:
   - http
 paths:
-  '/applications/{stage}':
+  '/calls':
     get:
       tags:
-        - application
-      summary: Returns all or filtered applications.
+        - call
+      summary: Returns all or filtered calls.
       description: ''
-      operationId: getApplications
+      operationId: getCalls
       produces:
         - application/json
       parameters:
-        - name: stage
-          in: path
-          description: Stage of the application
-          required: true
-          type: string
-        - name: id
+        - name: disposition
           in: query
-          description: Filter the result collection by providing one or more application ids.
-          type: array
-          items:
-            type: string
-          collectionFormat: multi
+          description: >-
+            Filter the result collection by providing a disposition type.
+          type: string
           required: false
+        - name: calldate
+          in: query
+          description: Show only calls never then the given date
+          type: string
+          format: date-time
         - name: offset
           in: query
           description: Paginate the result collection with the given offset.
@@ -47,94 +47,44 @@ paths:
         '200':
           description: Successful operation.
           schema:
-            title: Application list
+            title: Call list
             type: array
             items:
-              $ref: '#/definitions/Application'
+              $ref: '#/definitions/Call'
         '400':
           description: Bad Request - Invalid parameter value.
         '401':
           description: Unauthorized - No user credentials where provided.
         '404':
           description: Not Found - No result has been found matching the request criteria.
-    post:
-      tags:
-        - "application"
-      summary: Registers a new application.
-      description: ''
-      operationId: createApplication
-      produces:
-        - application/json
-      consumes:
-        - application/json
-      parameters:
-        - name: stage
-          in: path
-          description: Stage of the application
-          required: true
-          type: string
-        - name: application
-          in: body
-          description: Application to create.
-          required: true
-          schema:
-            $ref: '#/definitions/Application'
-      responses:
-        '201':
-          description: Successful operation.
-          schema:
-            title: Application id.
-            type: string
-        '400':
-          description: Bad Request - Invalid parameter value.
-        '401':
-          description: Unauthorized - No user credentials where provided.
-
 definitions:
-  Application:
+  Call:
     type: object
     properties:
-      applicationId:
+      calldate:
         type: string
-        description: Application id, provided during creation of the application in the developer portal.
-      name:
+        description: The calls start time
+      src:
         type: string
-        description: Application name, visible in the application launchpad.
-      description:
+        description: Call source
+      dst:
         type: string
-        description: Application description.
-      launchUrl:
+        description: Call destination
+      duration:
         type: string
-        description: URL used in the application launchpad to navigate to the start page of the
-          application.
-      iconUrl:
+        description: Call duration in seconds
+      dcontext:
         type: string
-        description: URL of the icon used in the application launchpad on the application tile.
-      requiredRoles:
-        type: array
-        description: List of role names which have access the application.
-        items:
-          type: string
-      thirdPartyProvider:
-        type: boolean
-        description: Indicator for a third-party application.
-      providerName:
+        description: Asterisk context used for this call
+      disposition:
         type: string
-        description: URL to the third-party application provider webpage.
-      providerIconUrl:
-        type: string
-        description: URL to the third-party provider icon which is displayed on the application tile in the application launchpad.
+        description: Call disposition
     xml:
-      name: Application
+      name: Call
     example:
-      applicationId: '0815'
-      name: My Simple Application
-      description: I'm an awesome demonstration application.
-      iconUrl: 'https://cdn.holisticon.de/mdi-arrow'
-      launchUrl: 'https://apps.holisticon.de/my-app/'
-      requiredRoles:
-        - user
-        - app-user
-      thirdPartyProvider: false
-      providerName: Holisticon
-      providerIconUrl: ''
+      calldate: '2018-06-30 15:30:59'
+      src: '0123456789'
+      dst: '+49123987654'
+      duration: 352
+      dcontext: public-out
+      disposition: ANSWERED
