@@ -6,8 +6,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2
 
 @SpringBootApplication
 @EnableSwagger2
-open class ReferenceApplication
+open class PoundApplication
 
 fun main(args: Array<String>) {
-  SpringApplication.run(ReferenceApplication::class.java, *args)
+  SpringApplication.run(PoundApplication::class.java, *args)
 }

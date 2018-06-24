@@ -11,7 +11,6 @@
   <packaging>jar</packaging>
 
   <properties>
-    <spring.boot.mainclass>com.ltaake.pound.ReferenceApplication</spring.boot.mainclass>
   </properties>
 
   <dependencies>
@@ -32,6 +31,15 @@
   <build>
     <plugins>
       <plugin>
+        <!-- java compiler -->
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>kotlin-maven-plugin</artifactId>
+        <groupId>org.jetbrains.kotlin</groupId>
+      </plugin>
+      <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <executions>
@@ -39,9 +47,6 @@
             <goals>
               <goal>repackage</goal>
             </goals>
-            <configuration>
-              <mainClass>${spring.boot.mainclass}</mainClass>
-            </configuration>
           </execution>
         </executions>
       </plugin>
