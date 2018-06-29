@@ -3,14 +3,17 @@ dist: trusty
 language: java
 jdk:
 - oraclejdk8
+services:
+- docker
 install:
 - export MAVEN_SKIP_RC=true
 - export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=512m"
 - export PATH=`pwd`/bin:$PATH
+- docker-compose up
 addons:
   sonarcloud:
     organization: mrm1st3r-github
 script:
-- export DISPLAY=:99.0 && ./mvnw clean verify -q sonar:sonar
+- export DISPLAY=:99.0 && ./mvnw clean verify -q sonar:sonar -PinitDb
 after_success:
 - bash <(curl -s https://codecov.io/bash)

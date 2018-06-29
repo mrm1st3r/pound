@@ -61,8 +61,8 @@
 
     <!-- Database -->
     <dependency>
-      <groupId>com.h2database</groupId>
-      <artifactId>h2</artifactId>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
     </dependency>
     <dependency>
       <groupId>org.jooq</groupId>
@@ -166,45 +166,6 @@
         </executions>
       </plugin>
 
-      <!-- The H2 test schema is loaded here -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>sql-maven-plugin</artifactId>
-        <version>1.5</version>
-
-        <configuration>
-          <skip>${maven.test.skip}</skip>
-        </configuration>
-
-        <executions>
-          <execution>
-            <id>create-database-h2</id>
-            <phase>initialize</phase>
-            <goals>
-              <goal>execute</goal>
-            </goals>
-            <configuration>
-              <driver>${spring.datasource.driver-class-name}</driver>
-              <url>jdbc:h2:${project.basedir}/${db.file.location}</url>
-              <username>${spring.datasource.username}</username>
-              <password>${spring.datasource.password}</password>
-              <autocommit>true</autocommit>
-              <srcFiles>
-                <srcFile>src/main/resources/db-h2.sql</srcFile>
-              </srcFiles>
-            </configuration>
-          </execution>
-        </executions>
-
-        <dependencies>
-          <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.4.196</version>
-          </dependency>
-        </dependencies>
-      </plugin>
-
       <!-- The jOOQ code generator plugin -->
       <plugin>
         <groupId>org.jooq</groupId>
@@ -213,7 +174,7 @@
 
         <executions>
           <execution>
-            <id>generate-h2</id>
+            <id>generate-jooq</id>
             <phase>generate-sources</phase>
             <goals>
               <goal>generate</goal>
@@ -221,13 +182,13 @@
             <configuration>
               <jdbc>
                 <driver>${spring.datasource.driver-class-name}</driver>
-                <url>jdbc:h2:${project.basedir}/${db.file.location}</url>
+                <url>${spring.datasource.url}</url>
                 <user>${spring.datasource.username}</user>
                 <password>${spring.datasource.password}</password>
               </jdbc>
               <generator>
                 <database>
-                  <inputSchema>PUBLIC</inputSchema>
+                  <inputSchema>public</inputSchema>
                 </database>
                 <generate>
                   <generatedAnnotation>false</generatedAnnotation>
@@ -245,4 +206,53 @@
       </plugin>
     </plugins>
   </build>
+
+  <profiles>
+      <!-- The Postgres schema is loaded here -->
+    <profile>
+      <id>initDb</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>sql-maven-plugin</artifactId>
+            <version>1.5</version>
+
+            <configuration>
+              <skip>${maven.test.skip}</skip>
+            </configuration>
+
+            <executions>
+              <execution>
+                <id>create-database-postgres</id>
+                <phase>initialize</phase>
+                <goals>
+                  <goal>execute</goal>
+                </goals>
+                <configuration>
+                  <driver>${spring.datasource.driver-class-name}</driver>
+                  <url>${spring.datasource.url}</url>
+                  <username>${spring.datasource.username}</username>
+                  <password>${spring.datasource.password}</password>
+                  <autocommit>true</autocommit>
+                  <srcFiles>
+                    <srcFile>src/main/resources/db.sql</srcFile>
+                  </srcFiles>
+                </configuration>
+              </execution>
+            </executions>
+
+            <dependencies>
+              <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${postgres.version}</version>
+              </dependency>
+            </dependencies>
+          </plugin>
+
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
