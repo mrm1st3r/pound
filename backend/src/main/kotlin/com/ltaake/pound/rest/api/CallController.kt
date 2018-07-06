@@ -30,7 +30,8 @@ class CallController(
       offset: Optional<Int>?,
       @RequestParam(value = "limit", required = false)
       limit: Optional<Int>?): ResponseEntity<List<CallDto>> {
-    val calls = callRepository.findAllCalls()
+
+    val calls = callRepository.findCalls(disposition!!, calldate!!, offset!!.orElse(0), limit!!.orElse(20))
     return ResponseEntity.ok(callConverter.toDtos(calls))
   }
 }
