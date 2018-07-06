@@ -1,8 +1,7 @@
-package com.ltaake.pound.rest
+package com.ltaake.pound.rest.api
 
 import com.ltaake.pound.CallRepository
 import com.ltaake.pound.model.CallConverter
-import com.ltaake.pound.rest.api.CallsApi
 import com.ltaake.pound.rest.model.CallDto
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.RequestMapping
