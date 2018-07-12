@@ -6,6 +6,16 @@
 
 > A minimal user interface for asterisk
 
+Pound operates in a readonly mode on the database that asterisk writes it's CDR records to.
+It is not able to do any modifications to asterisk configuration (and is not planned to be).
+
+## Features
+
+- [X] View Call History via REST-API
+- [ ] View Call History in UI
+- [ ] Notification on Missed Calls
+- [ ] Call Statistics
+
 ## Modules
 Following a quick overview of the project modules,
 what they're doing and how they are connected with each other: 
