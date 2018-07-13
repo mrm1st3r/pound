@@ -3,14 +3,14 @@ import { RequestMethod } from '@angular/http';
 import { TestBed, getTestBed } from '@angular/core/testing';
 import { MockBackend } from '@angular/http/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { Application, ApplicationService } from '../../../src-gen';
+import { Call, CallControllerService } from '../../../src-gen';
 import { MODULE_MOCKS, SERVICE_MOCKS, } from '../../mocks';
 
 // normally we don't test generated code, this is just for showing how to mock HTTP requests!!!
 describe('ApplicationService', () => {
 
   let injector: TestBed;
-  let service: ApplicationService;
+  let service: CallControllerService;
   let httpMock: HttpTestingController;
 
   beforeEach(() => {
@@ -20,11 +20,11 @@ describe('ApplicationService', () => {
       ],
       providers: [
         SERVICE_MOCKS,
-        ApplicationService,
+        CallControllerService,
       ]
     }).compileComponents();
     injector = getTestBed();
-    service = injector.get(ApplicationService);
+    service = injector.get(CallControllerService);
     httpMock = injector.get(HttpTestingController);
   });
 
@@ -35,21 +35,4 @@ describe('ApplicationService', () => {
   it('should init', () => {
     expect(service).toBeDefined();
   });
-
-  it('should create application', () => {
-    // given
-    const application = <Application>{};
-    // when
-    service.createApplication('42', application).subscribe((applicationID: string) => {
-      // then
-      expect(applicationID).toBeDefined();
-    });
-
-    const mockReq = httpMock.expectOne({ method: 'POST', url: 'http://localhost/application-api/v1/applications/42' });
-    expect(mockReq.cancelled).toBeFalsy();
-    expect(mockReq.request.responseType).toEqual('json');
-    mockReq.flush(application);
-
-  });
-
 });

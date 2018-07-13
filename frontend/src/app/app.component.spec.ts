@@ -2,7 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TestBed, async } from '@angular/core/testing';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { ButtonModule } from 'primeng/button';
-import { ApplicationService } from './../../src-gen/api/application.service';
+import { CallControllerService } from './../../src-gen/api/callController.service';
 import { AppComponent } from './app.component';
 import { SERVICE_MOCKS } from '../mocks';
 

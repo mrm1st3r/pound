@@ -1,5 +1,5 @@
-import { ApplicationService } from '../../src-gen';
+import { CallControllerService } from '../../src-gen';
 
 
-export class ApplicationServiceMock extends ApplicationService {
+export class CallControllerServiceMock extends CallControllerService {
 }

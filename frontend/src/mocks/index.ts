@@ -1,8 +1,8 @@
 import { BaseRequestOptions, Http } from '@angular/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
-import { ApplicationServiceMock } from './application.service.mock';
-import { ApplicationService } from '../../src-gen';
+import { CallControllerServiceMock } from './application.service.mock';
+import { CallControllerService } from '../../src-gen';
 
 export const MODULE_MOCKS = [
   HttpClientTestingModule,
@@ -10,5 +10,5 @@ export const MODULE_MOCKS = [
 ];
 
 export const SERVICE_MOCKS = [
-  { provide: ApplicationService, useClass: ApplicationServiceMock },
+  { provide: CallControllerService, useClass: CallControllerServiceMock },
 ];
