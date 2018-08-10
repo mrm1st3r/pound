@@ -18,8 +18,8 @@ CREATE TABLE cdr (
 );
 
 
-INSERT INTO cdr (src, dst)
-  VALUES ('123456789', '987654321');
+INSERT INTO cdr (src, dst, disposition)
+  VALUES ('123456789', '987654321', 'OUTGOING');
 
-INSERT INTO cdr (src, dst)
-  VALUES ('12345', '54321');
+INSERT INTO cdr (src, dst, disposition)
+  VALUES ('12345', '54321', 'INCOMING');
