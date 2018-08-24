@@ -5,6 +5,7 @@ import org.jooq.impl.*
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.context.annotation.Profile
 import org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy
 import org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
@@ -13,6 +14,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.web.cors.CorsConfiguration
 import org.springframework.web.cors.CorsConfigurationSource
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource
+import springfox.documentation.swagger2.annotations.EnableSwagger2
 import javax.sql.DataSource
 
 
@@ -73,3 +75,8 @@ open class WebSecurityConfig: WebSecurityConfigurerAdapter() {
     return urlBasedCorsConfigurationSource
   }
 }
+
+@Configuration
+@Profile("swagger")
+@EnableSwagger2
+open class SwaggerConfiguration
