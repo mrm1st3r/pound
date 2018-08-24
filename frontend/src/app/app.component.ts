@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { CallControllerService } from '../../src-gen';
 import { NGXLogger } from 'ngx-logger';
 
@@ -7,18 +7,21 @@ import { NGXLogger } from 'ngx-logger';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'app';
+export class AppComponent implements OnInit {
+  title = 'Pound';
+  calls;
 
   constructor(private serviceClient: CallControllerService,
     private logger: NGXLogger) {
-
   }
-  printApplications(): void {
-    this.serviceClient.getCalls('test').subscribe(
-        apps => apps.forEach(
-            call => this.logger.debug('Application:', call.dst, call.src, call.calldate)
-        )
+
+  getCalls(): void {
+    this.serviceClient.getCalls().subscribe(
+        calls => this.calls = calls
     );
+  }
+
+  ngOnInit() {
+    this.getCalls();
   }
 }
