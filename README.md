@@ -12,7 +12,7 @@ It is not able to do any modifications to asterisk configuration (and is not pla
 ## Features
 
 - [X] View Call History via REST-API
-- [ ] View Call History in UI
+- [X] View Call History in UI
 - [ ] Notification on Missed Calls
 - [ ] Call Statistics
 
@@ -35,3 +35,10 @@ what they're doing and how they are connected with each other:
 - **assembly**  
   The main module used to start the application. Contains the spring boot main class and depends on *backend* and *frontend*.
 
+## Build
+
+To build pound an run integration tests, you'll have to start the dockerized postgres database first:
+```
+docker-compose up -d
+mvn clean install
+```
