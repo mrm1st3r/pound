@@ -11,8 +11,8 @@
     "typeRoots": [
       "node_modules/@types"
     ],
-    "baseUrl": ".", // This must be specified if "paths" is.
-    "paths": { // relatice to baseUrl
+    "baseUrl": ".",
+    "paths": {
       "*": [
         "src/*",
         "src-gen/*"
@@ -21,6 +21,7 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "module": "es2015"
   }
 }

@@ -7,16 +7,16 @@ process.env.CHROME_BIN = require('puppeteer').executablePath();
 module.exports = function (config) {
   config.set({
     basePath: '',
-    frameworks: ['jasmine', '@angular/cli'],
+    frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-remap-istanbul'),
-      require('@angular/cli/plugins/karma'),
+      require('@angular-devkit/build-angular/plugins/karma'),
       require('karma-jasmine-html-reporter'),
       require('karma-junit-reporter'),
       require('karma-coverage-istanbul-reporter'),
-      require('@angular/cli/plugins/karma')
+      require('@angular-devkit/build-angular/plugins/karma')
     ],
     client: {
       clearContext: false
@@ -25,13 +25,13 @@ module.exports = function (config) {
       {pattern: './src/test/frontend/setup.ts', watched: false}
     ],
     preprocessors: {
-      './src/test/frontend/setup.ts': ['@angular/cli']
+      './src/test/frontend/setup.ts': ['@angular-devkit/build-angular']
     },
     coverageReporter: {
       type: 'in-memory'
     },
     coverageIstanbulReporter: {
-      reports: ['html', 'lcovonly', 'text-summary'],
+      dir: require('path').join(__dirname, 'coverage'), reports: ['html', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true,
       dir: path.join(__dirname, 'target/ccoverage'),
     },
@@ -39,9 +39,7 @@ module.exports = function (config) {
       title: 'ReferenceArc-WebApp',
       outputDir: path.join(__dirname, 'target/surefire-reports')
     },
-    angularCli: {
-      environment: 'dev'
-    },
+    
     customLaunchers: {
       ChromeHeadless: {
         base: 'Chrome',
