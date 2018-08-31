@@ -16,7 +16,6 @@ module.exports = function (config) {
       require('karma-jasmine-html-reporter'),
       require('karma-junit-reporter'),
       require('karma-coverage-istanbul-reporter'),
-      require('@angular-devkit/build-angular/plugins/karma')
     ],
     client: {
       clearContext: false
@@ -50,8 +49,8 @@ module.exports = function (config) {
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ['Chrome'],
+    autoWatch: false,
+    browsers: ['ChromeHeadless'],
     singleRun: false
   });
 };
