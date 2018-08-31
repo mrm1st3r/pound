@@ -81,6 +81,7 @@
               <language>typescript-angular</language>
               <apiPackage>api</apiPackage>
               <modelPackage>model</modelPackage>
+              <templateDirectory>swaggerTemplates</templateDirectory>
               <!--
               Uncomment to see all options
               -->
