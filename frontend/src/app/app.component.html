@@ -9,7 +9,7 @@
     <th>Date</th>
     <th>Duration</th>
     </tr>
-    <tr *ngFor="let call of calls">
+    <tr *ngFor="let call of calls | async">
       <td>{{call.src}}</td>
       <td>{{call.dst}}</td>
       <td>{{call.calldate}}</td>

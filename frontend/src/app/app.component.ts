@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import { CallControllerService } from '../../src-gen';
-import { NGXLogger } from 'ngx-logger';
+import {Call} from '../../src-gen';
+import {NGXLogger} from 'ngx-logger';
+import {CallsStoreService} from "./state/calls-store.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -9,19 +11,18 @@ import { NGXLogger } from 'ngx-logger';
 })
 export class AppComponent implements OnInit {
   title = 'Pound';
-  calls;
+  calls: Observable<Call[]>;
 
-  constructor(private serviceClient: CallControllerService,
+  constructor(
+    private callsStore: CallsStoreService,
     private logger: NGXLogger) {
-  }
-
-  getCalls(): void {
-    this.serviceClient.getCalls().subscribe(
-        calls => this.calls = calls
-    );
+    this.calls = callsStore.allCalls();
+    this.calls.subscribe(calls => {
+      logger.debug(calls);
+    });
   }
 
   ngOnInit() {
-    this.getCalls();
+    this.callsStore.loadCalls();
   }
 }
