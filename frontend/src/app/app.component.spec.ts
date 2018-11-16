@@ -8,6 +8,7 @@ import {StoreModule} from "@ngrx/store";
 import {reducers} from "./state/calls.reducer";
 import {EffectsModule} from "@ngrx/effects";
 import {CallsEffects} from "./state/calls.effects";
+import {MatTableModule, MatToolbarModule} from "@angular/material";
 
 describe('AppComponent', () => {
 
@@ -19,7 +20,9 @@ describe('AppComponent', () => {
         HttpClientModule,
         LoggerModule.forRoot({level: NgxLoggerLevel.DEBUG, serverLogLevel: NgxLoggerLevel.OFF}),
         StoreModule.forRoot(reducers),
-        EffectsModule.forRoot([CallsEffects])
+        EffectsModule.forRoot([CallsEffects]),
+        MatTableModule,
+        MatToolbarModule
       ],
       declarations: [
         AppComponent
@@ -44,6 +47,6 @@ describe('AppComponent', () => {
   it('should render title in a h1 tag', async(() => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Pound');
+    expect(compiled.querySelector('mat-toolbar span').textContent).toContain('Pound');
   }));
 });

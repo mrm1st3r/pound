@@ -12,6 +12,7 @@ import {Observable} from "rxjs";
 export class AppComponent implements OnInit {
   title = 'Pound';
   calls: Observable<Call[]>;
+  private loaded: boolean = false;
 
   constructor(
     private callsStore: CallsStoreService,
@@ -20,9 +21,15 @@ export class AppComponent implements OnInit {
     this.calls.subscribe(calls => {
       logger.debug("Loaded " + calls.length + " Calls");
     });
+    this.callsStore.callsLoaded$.subscribe(() => {
+          this.loaded = true;
+        }
+    );
   }
 
   ngOnInit() {
     this.callsStore.loadCalls();
   }
+
+  displayedColumns = ['src', 'dst', 'calldate', 'duration'];
 }
