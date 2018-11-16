@@ -30,6 +30,7 @@
     "@ngxp/store-service": "^5.0.1",
     "core-js": "^2.5.7",
     "font-awesome": "^4.7.0",
+    "ngrx-store-logger": "^0.2.2",
     "ngx-logger": "^3.3.6",
     "rxjs": "^6.3.3",
     "zone.js": "^0.8.26"

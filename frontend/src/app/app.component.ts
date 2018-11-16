@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
     private logger: NGXLogger) {
     this.calls = callsStore.allCalls();
     this.calls.subscribe(calls => {
-      logger.debug(calls);
+      logger.debug("Loaded " + calls.length + " Calls");
     });
   }
 
