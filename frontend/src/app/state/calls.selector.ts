@@ -1,8 +1,8 @@
-import {CallsState} from "./calls.state";
 import {Call} from "../../../src-gen";
+import {AppState} from "../app.state";
 
 export function getCalls() {
-  return (state: CallsState): Call[] => {
-    return state.calls;
+  return (state: AppState): Call[] => {
+    return state.calls.calls;
   }
 }

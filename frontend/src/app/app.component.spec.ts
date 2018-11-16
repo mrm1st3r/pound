@@ -3,6 +3,11 @@ import { TestBed, async } from '@angular/core/testing';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { AppComponent } from './app.component';
 import { SERVICE_MOCKS } from '../mocks';
+import {CallsStoreService} from "./state/calls-store.service";
+import {StoreModule} from "@ngrx/store";
+import {reducers} from "./state/calls.reducer";
+import {EffectsModule} from "@ngrx/effects";
+import {CallsEffects} from "./state/calls.effects";
 
 describe('AppComponent', () => {
 
@@ -13,11 +18,14 @@ describe('AppComponent', () => {
       imports: [
         HttpClientModule,
         LoggerModule.forRoot({level: NgxLoggerLevel.DEBUG, serverLogLevel: NgxLoggerLevel.OFF}),
+        StoreModule.forRoot(reducers),
+        EffectsModule.forRoot([CallsEffects])
       ],
       declarations: [
         AppComponent
       ],
       providers: [
+          CallsStoreService,
         SERVICE_MOCKS,
       ]
     }).compileComponents();
