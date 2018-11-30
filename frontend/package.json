@@ -28,6 +28,7 @@
     "@ngrx/effects": "^6.1.2",
     "@ngrx/store": "^6.1.2",
     "@ngxp/store-service": "^5.0.1",
+    "angular2-moment": "^1.9.0",
     "core-js": "^2.5.7",
     "font-awesome": "^4.7.0",
     "ngrx-store-logger": "^0.2.2",

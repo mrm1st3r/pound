@@ -24,6 +24,7 @@ import {EffectsModule} from "@ngrx/effects";
 import {CallsEffects} from "./state/calls.effects";
 import {CallsStoreService} from "./state/calls-store.service";
 import {storeLogger} from "ngrx-store-logger";
+import {MomentModule} from "angular2-moment";
 
 export function logger(reducer) {
   return storeLogger()(reducer);
@@ -49,6 +50,7 @@ const metaReducers = [logger];
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MomentModule,
     StoreModule.forRoot(reducers, {metaReducers}),
     EffectsModule.forRoot([CallsEffects])
   ],
