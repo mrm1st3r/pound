@@ -12,7 +12,7 @@ import {Observable} from "rxjs";
 export class AppComponent implements OnInit {
   title = 'Pound';
   calls: Observable<Call[]>;
-  private loaded: boolean = false;
+  loaded: boolean = false;
 
   constructor(
     private callsStore: CallsStoreService,
