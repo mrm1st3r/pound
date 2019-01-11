@@ -68,6 +68,11 @@
       <groupId>org.jooq</groupId>
       <artifactId>jooq</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.jooq</groupId>
+      <artifactId>jooq-meta-extensions</artifactId>
+      <version>${jooq.version}</version>
+    </dependency>
 
     <!-- Kotlin -->
     <dependency>
@@ -180,15 +185,15 @@
               <goal>generate</goal>
             </goals>
             <configuration>
-              <jdbc>
-                <driver>${spring.datasource.driver-class-name}</driver>
-                <url>${spring.datasource.url}</url>
-                <user>${spring.datasource.username}</user>
-                <password>${spring.datasource.password}</password>
-              </jdbc>
               <generator>
                 <database>
-                  <inputSchema>public</inputSchema>
+                  <name>org.jooq.meta.extensions.ddl.DDLDatabase</name>
+                  <properties>
+                    <property>
+                      <key>scripts</key>
+                      <value>${basedir}/src/main/resources/db.sql</value>
+                    </property>
+                  </properties>
                 </database>
                 <generate>
                   <generatedAnnotation>false</generatedAnnotation>

@@ -9,6 +9,7 @@ import {reducers} from "./state/calls.reducer";
 import {EffectsModule} from "@ngrx/effects";
 import {CallsEffects} from "./state/calls.effects";
 import {MatTableModule, MatToolbarModule} from "@angular/material";
+import {MomentModule} from "angular2-moment";
 
 describe('AppComponent', () => {
 
@@ -22,7 +23,8 @@ describe('AppComponent', () => {
         StoreModule.forRoot(reducers),
         EffectsModule.forRoot([CallsEffects]),
         MatTableModule,
-        MatToolbarModule
+        MatToolbarModule,
+        MomentModule,
       ],
       declarations: [
         AppComponent
@@ -40,7 +42,7 @@ describe('AppComponent', () => {
     expect(component).toBeTruthy();
   }));
 
-  it(`should have as title 'app'`, async(() => {
+  it(`should have as title 'Pound'`, async(() => {
     expect(component.title).toEqual('Pound');
   }));
 
