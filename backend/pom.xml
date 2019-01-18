@@ -164,7 +164,7 @@
             </goals>
             <configuration>
               <files>
-                <file>src/main/resources/application.properties</file>
+                <file>src/main/resources/application-dev.properties</file>
               </files>
             </configuration>
           </execution>
@@ -185,15 +185,15 @@
               <goal>generate</goal>
             </goals>
             <configuration>
+              <jdbc>
+                <driver>${spring.datasource.driver-class-name}</driver>
+                <url>${spring.datasource.url}</url>
+                <user>${spring.datasource.username}</user>
+                <password>${spring.datasource.password}</password>
+              </jdbc>
               <generator>
                 <database>
-                  <name>org.jooq.meta.extensions.ddl.DDLDatabase</name>
-                  <properties>
-                    <property>
-                      <key>scripts</key>
-                      <value>${basedir}/src/main/resources/db.sql</value>
-                    </property>
-                  </properties>
+                  <inputSchema>public</inputSchema>
                 </database>
                 <generate>
                   <generatedAnnotation>false</generatedAnnotation>

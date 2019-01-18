@@ -9,11 +9,11 @@ install:
 - export MAVEN_SKIP_RC=true
 - export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=512m"
 - export PATH=`pwd`/bin:$PATH
-- docker-compose up -d
+- docker-compose up -d database
 addons:
   sonarcloud:
     organization: mrm1st3r-github
 script:
-- export DISPLAY=:99.0 && ./mvnw clean verify -q sonar:sonar -PinitDb
+- export DISPLAY=:99.0 && ./mvnw clean verify -q sonar:sonar -PinitDb -Pitest
 after_success:
 - bash <(curl -s https://codecov.io/bash)
