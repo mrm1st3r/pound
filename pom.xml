@@ -13,7 +13,7 @@
     <kotlin.version>1.2.51</kotlin.version>
     <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
 
-    <springboot.version>2.0.3.RELEASE</springboot.version>
+    <springboot.version>2.1.2.RELEASE</springboot.version>
     <springcloud.version>Finchley.M5</springcloud.version>
     <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
     <org.mapstruct.version>1.2.0.Final</org.mapstruct.version>

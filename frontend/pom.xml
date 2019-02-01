@@ -12,6 +12,7 @@
   <packaging>jar</packaging>
 
   <properties>
+    <npm-goal>build</npm-goal>
   </properties>
 
   <dependencies>
@@ -114,7 +115,7 @@
               <goal>npm</goal>
             </goals>
             <configuration>
-              <arguments>run build</arguments>
+              <arguments>run ${npm-goal}</arguments>
             </configuration>
           </execution>
           <execution>
@@ -226,6 +227,35 @@
               </filesets>
             </configuration>
           </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>docker</id>
+      <properties>
+        <npm-goal>build-docker</npm-goal>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.spotify</groupId>
+            <artifactId>dockerfile-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>default</id>
+                <goals>
+                  <goal>build</goal>
+                  <goal>push</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <repository>pound-ui/frontend</repository>
+              <tag>${project.version}</tag>
+            </configuration>
+          </plugin>
+
         </plugins>
       </build>
     </profile>

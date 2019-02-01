@@ -1,5 +1,6 @@
 package com.ltaake.pound
 
+import com.ltaake.pound.rest.api.RequestLoggingInterceptor
 import org.jooq.ExecuteContext
 import org.jooq.impl.*
 import org.springframework.beans.factory.annotation.Value
@@ -11,9 +12,13 @@ import org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
+import org.springframework.security.web.firewall.DefaultHttpFirewall
+import org.springframework.security.web.firewall.HttpFirewall
 import org.springframework.web.cors.CorsConfiguration
 import org.springframework.web.cors.CorsConfigurationSource
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 import springfox.documentation.swagger2.annotations.EnableSwagger2
 import javax.sql.DataSource
 
@@ -73,6 +78,21 @@ open class WebSecurityConfig: WebSecurityConfigurerAdapter() {
     corsConfiguration.allowedOrigins = listOf(frontendUrl)
     urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration)
     return urlBasedCorsConfigurationSource
+  }
+}
+
+@Configuration
+open class WebConfigurer(
+    private val loggingInterceptor: RequestLoggingInterceptor
+): WebMvcConfigurer {
+
+  @Bean
+  open fun defaultHttpFirewall(): HttpFirewall {
+    return DefaultHttpFirewall()
+  }
+
+  override fun addInterceptors(registry: InterceptorRegistry) {
+    registry.addInterceptor(loggingInterceptor)
   }
 }
 

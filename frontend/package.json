@@ -6,6 +6,7 @@
     "ng": "ng",
     "watch": "ng serve",
     "build": "ng build --prod",
+    "build-docker": "ng build --configuration=docker",
     "test": "ng test --code-coverage --watch=false --browsers=ChromeHeadless",
     "watch-test": "ng test --watch=true",
     "lint": "ng lint",

@@ -14,3 +14,9 @@ services:
       - "8080:8080"
     links:
       - database
+  frontend:
+    image: pound-ui/frontend:0.0.1-SNAPSHOT
+    ports:
+      - "4300:80"
+    links:
+      - backend
