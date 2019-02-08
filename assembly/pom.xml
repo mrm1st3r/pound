@@ -112,7 +112,7 @@
               </execution>
             </executions>
             <configuration>
-              <repository>pound-ui/backend</repository>
+              <repository>ltaake/pound-ui-backend</repository>
               <tag>${project.version}</tag>
               <buildArgs>
                 <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
