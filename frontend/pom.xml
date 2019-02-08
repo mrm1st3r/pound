@@ -282,7 +282,7 @@
             <configuration>
               <dockerfile>Dockerfile.armv7</dockerfile>
               <repository>ltaake/pound-ui-frontend</repository>
-              <tag>arm-${project.version}</tag>
+              <tag>${project.version}-arm</tag>
             </configuration>
           </plugin>
 

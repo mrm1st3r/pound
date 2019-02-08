@@ -166,7 +166,7 @@
             <configuration>
               <dockerfile>Dockerfile.armv7</dockerfile>
               <repository>ltaake/pound-ui-backend</repository>
-              <tag>arm-${project.version}</tag>
+              <tag>${project.version}-arm</tag>
               <buildArgs>
                 <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
               </buildArgs>
