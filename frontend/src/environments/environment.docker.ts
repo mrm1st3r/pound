@@ -5,5 +5,8 @@
 
 export const environment = {
   production: false,
-  backendUrl: 'http://localhost:4300/api'
+  // When running in a Docker container,
+  // the Backend URL will be replaced dynamically
+  // with the BACKEND_URL environment variable
+  backendUrl: '__BACKEND_URL_PLACEHOLDER__'
 };

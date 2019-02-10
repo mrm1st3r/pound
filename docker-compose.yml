@@ -20,5 +20,7 @@ services:
     image: ltaake/pound-ui-frontend:0.0.1-SNAPSHOT
     ports:
       - "4300:80"
+    environment:
+      - BACKEND_URL=http://localhost:8080/
     links:
       - backend
