@@ -33,6 +33,7 @@ class CallRepository(
 
     val result = dsl.selectFrom(CDR)
         .where(condition)
+        .orderBy(CDR.CALLDATE.desc())
         .offset(offset)
         .limit(limit)
         .fetch()
