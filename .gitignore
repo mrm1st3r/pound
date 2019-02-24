@@ -48,3 +48,5 @@ target/
 dist/
 etc/
 frontend.iml
+
+frontend/proxy.conf.local.json
