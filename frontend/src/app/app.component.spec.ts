@@ -9,7 +9,7 @@ import {reducers} from "./state/calls.reducer";
 import {EffectsModule} from "@ngrx/effects";
 import {CallsEffects} from "./state/calls.effects";
 import {MatTableModule, MatToolbarModule} from "@angular/material";
-import {MomentModule} from "angular2-moment";
+import {MomentModule} from "ngx-moment";
 
 describe('AppComponent', () => {
 

@@ -18,17 +18,26 @@ import {
   MatTableModule,
   MatToolbarModule
 } from '@angular/material';
-import {StoreModule} from "@ngrx/store";
+import {ActionReducer, StoreModule} from "@ngrx/store";
 import {reducers} from "./state/calls.reducer";
 import {EffectsModule} from "@ngrx/effects";
 import {CallsEffects} from "./state/calls.effects";
 import {CallsStoreService} from "./state/calls-store.service";
-import {storeLogger} from "ngrx-store-logger";
-import {MomentModule} from "angular2-moment";
 import {environment} from "../environments/environment";
+import {MomentModule} from "ngx-moment";
+import {AppState} from "./app.state";
 
-export function logger(reducer) {
-  return storeLogger()(reducer);
+export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState> {
+  return (state: AppState, action: any): any => {
+    const result = reducer(state, action);
+    console.groupCollapsed(action.type);
+    console.log('prev state', state);
+    console.log('action', action);
+    console.log('next state', result);
+    console.groupEnd();
+
+    return result;
+  };
 }
 
 const metaReducers = [logger];
