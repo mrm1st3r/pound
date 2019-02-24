@@ -1,0 +1,7 @@
+{
+  "/api": {
+    "target": "http://your-running-pound-backend",
+    "secure": false,
+    "changeOrigin": true
+  }
+}
