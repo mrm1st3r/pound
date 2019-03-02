@@ -10,6 +10,7 @@ import {EffectsModule} from "@ngrx/effects";
 import {CallsEffects} from "./state/calls.effects";
 import {MatTableModule, MatToolbarModule} from "@angular/material";
 import {MomentModule} from "ngx-moment";
+import {CallIconComponent} from "./call-icon/call-icon.component";
 
 describe('AppComponent', () => {
 
@@ -27,7 +28,8 @@ describe('AppComponent', () => {
         MomentModule,
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        CallIconComponent,
       ],
       providers: [
           CallsStoreService,

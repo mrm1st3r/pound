@@ -9,7 +9,7 @@ import {Call} from "../../../src-gen";
 export class CallIconComponent {
 
   @Input()
-  private call: Call;
+  public call: Call;
 
   public iconClasses(): string {
 

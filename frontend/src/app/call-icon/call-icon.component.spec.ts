@@ -16,6 +16,7 @@ describe('CallIconComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CallIconComponent);
     component = fixture.componentInstance;
+    component.call = {};
     fixture.detectChanges();
   });
 
