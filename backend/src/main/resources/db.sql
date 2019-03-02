@@ -18,8 +18,8 @@ CREATE TABLE cdr (
 );
 
 
-INSERT INTO cdr (src, dst, disposition)
-  VALUES ('123456789', '987654321', 'OUTGOING');
+INSERT INTO cdr (src, dst, dcontext, disposition)
+  VALUES ('123456789', '987654321', 'context-out', 'ANSWERED');
 
-INSERT INTO cdr (src, dst, disposition)
-  VALUES ('12345', '54321', 'INCOMING');
+INSERT INTO cdr (src, dst, dcontext, disposition)
+  VALUES ('12345', '54321', 'context-in', 'ANSWERED');

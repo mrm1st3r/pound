@@ -13,11 +13,17 @@ data class Call(
     var callTime: LocalDateTime,
     var dcontext: String,
     var duration: Int,
-    var disposition: String
+    var disposition: String,
+    var direction: Direction
 ) {
   constructor():
-    this("", "", LocalDateTime.now(), "", 0, "")
+    this("", "", LocalDateTime.now(), "", 0, "", Direction.UNKNOWN)
+}
 
+  enum class Direction {
+  INCOMING,
+  OUTGOING,
+  UNKNOWN
 }
 
 @Mapper(componentModel = "spring")

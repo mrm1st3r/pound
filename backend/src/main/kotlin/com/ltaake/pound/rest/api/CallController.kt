@@ -1,6 +1,6 @@
 package com.ltaake.pound.rest.api
 
-import com.ltaake.pound.CallRepository
+import com.ltaake.pound.CallService
 import com.ltaake.pound.model.CallConverter
 import com.ltaake.pound.rest.model.CallDto
 import org.springframework.http.ResponseEntity
@@ -16,8 +16,8 @@ import java.util.*
  */
 @RestController
 class CallController(
-    private val callRepository: CallRepository,
-    private val callConverter: CallConverter
+    private val callConverter: CallConverter,
+    private val callService: CallService
 ) : CallsApi {
 
   @RequestMapping(path = ["/calls"], produces = ["application/json"], method = [(RequestMethod.GET)])
@@ -31,7 +31,8 @@ class CallController(
       @RequestParam(value = "limit", required = false)
       limit: Optional<Int>?): ResponseEntity<List<CallDto>> {
 
-    val calls = callRepository.findCalls(disposition!!, calldate!!, offset!!.orElse(0), limit!!.orElse(20))
+    val calls = callService.getCalls(disposition!!, calldate!!, offset!!, limit!!)
+
     return ResponseEntity.ok(callConverter.toDtos(calls))
   }
 }

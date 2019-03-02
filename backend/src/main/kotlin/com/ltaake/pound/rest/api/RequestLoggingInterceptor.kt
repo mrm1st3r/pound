@@ -22,11 +22,4 @@ class RequestLoggingInterceptor : HandlerInterceptorAdapter() {
 
     return true
   }
-
-  override fun afterCompletion(
-      request: HttpServletRequest,
-      response: HttpServletResponse,
-      handler: Any,
-      ex: Exception?) {
-  }
 }
