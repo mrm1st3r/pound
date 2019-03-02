@@ -31,5 +31,5 @@ export class AppComponent implements OnInit {
     this.callsStore.loadCalls();
   }
 
-  displayedColumns = ['src', 'dst', 'calldate', 'duration'];
+  displayedColumns = ['direction', 'src', 'dst', 'calldate', 'duration'];
 }

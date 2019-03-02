@@ -26,6 +26,7 @@ import {CallsStoreService} from "./state/calls-store.service";
 import {environment} from "../environments/environment";
 import {MomentModule} from "ngx-moment";
 import {AppState} from "./app.state";
+import { CallIconComponent } from './call-icon/call-icon.component';
 
 export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState> {
   return (state: AppState, action: any): any => {
@@ -44,7 +45,8 @@ const metaReducers = [logger];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CallIconComponent
   ],
   imports: [
     BrowserModule,
