@@ -31,7 +31,7 @@
     <module>api</module>
     <module>backend-rest</module>
     <module>backend</module>
-    <module>assembly</module>
+    <!-- Frontend module is defined conditionally in profiles section -->
   </modules>
 
   <dependencyManagement>
