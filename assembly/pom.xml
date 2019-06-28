@@ -19,6 +19,7 @@
       <groupId>com.ltaake.pound</groupId>
       <artifactId>backend</artifactId>
     </dependency>
+   <!-- Disabled due to problems with SpringBoot 2.2
     <dependency>
       <groupId>io.toolisticon.springboot</groupId>
       <artifactId>springboot-swagger-starter</artifactId>
@@ -39,7 +40,7 @@
           <artifactId>guava</artifactId>
         </exclusion>
       </exclusions>
-    </dependency>
+    </dependency>-->
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
