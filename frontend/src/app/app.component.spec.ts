@@ -8,7 +8,8 @@ import {StoreModule} from "@ngrx/store";
 import {reducers} from "./state/calls.reducer";
 import {EffectsModule} from "@ngrx/effects";
 import {CallsEffects} from "./state/calls.effects";
-import {MatTableModule, MatToolbarModule} from "@angular/material";
+import { MatTableModule } from "@angular/material/table";
+import { MatToolbarModule } from "@angular/material/toolbar";
 import {MomentModule} from "ngx-moment";
 import {CallIconComponent} from "./call-icon/call-icon.component";
 
