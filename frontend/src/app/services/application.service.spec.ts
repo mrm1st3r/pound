@@ -1,10 +1,7 @@
-import { HttpEvent, HttpEventType } from '@angular/common/http';
-import { RequestMethod } from '@angular/http';
-import { TestBed, getTestBed } from '@angular/core/testing';
-import { MockBackend } from '@angular/http/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { Call, CallControllerService } from '../../../src-gen';
-import { MODULE_MOCKS, SERVICE_MOCKS, } from '../../mocks';
+import {getTestBed, TestBed} from '@angular/core/testing';
+import {HttpTestingController} from '@angular/common/http/testing';
+import {CallControllerService} from '../../../src-gen';
+import {MODULE_MOCKS, SERVICE_MOCKS,} from '../../mocks';
 
 // normally we don't test generated code, this is just for showing how to mock HTTP requests!!!
 describe('ApplicationService', () => {
