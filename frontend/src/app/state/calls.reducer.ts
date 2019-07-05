@@ -1,5 +1,9 @@
-import {CallsState} from "./calls.state";
-import {CallsActions, CallsActionTypes} from "./calls.actions";
+import {CallsActions, callsLoaded} from "./calls.actions";
+import {Call} from "../../../src-gen";
+
+export interface CallsState {
+  readonly calls: Call[];
+}
 
 const initialState: CallsState = {
   calls: []
@@ -8,9 +12,9 @@ const initialState: CallsState = {
 export function reducer(state: CallsState = initialState, action: CallsActions): CallsState {
 
   switch (action.type) {
-    case CallsActionTypes.callsLoaded: {
+    case callsLoaded.type: {
       return {
-        calls: action.payload
+        calls: action.calls
       };
     }
     default:

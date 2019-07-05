@@ -1,8 +1,9 @@
-import {Call} from "../../../src-gen";
 import {AppState} from "../app.state";
+import {createSelector} from "@ngrx/store";
 
-export function getCalls() {
-  return (state: AppState): Call[] => {
-    return state.calls.calls;
-  }
-}
+const selectFeature = (state: AppState) => state.calls;
+
+export const getCallsSelector = createSelector(
+    selectFeature,
+    state => state.calls
+);

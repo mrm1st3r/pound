@@ -27,7 +27,7 @@
     "@angular/router": "8.1.0",
     "@ngrx/effects": "^8.0.1",
     "@ngrx/store": "^8.0.1",
-    "@ngxp/store-service": "^5.0.1",
+    "@ngxp/store-service": "^8.0.0",
     "core-js": "^2.6.5",
     "font-awesome": "^4.7.0",
     "moment": "^2.24.0",

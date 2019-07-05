@@ -1,23 +1,8 @@
-import {Action} from "@ngrx/store";
+import {createAction, union} from "@ngrx/store";
 import {Call} from "../../../src-gen";
 
-export enum CallsActionTypes {
-  loadCalls = "[Calls] load calls",
-  callsLoaded = "[Calls] calls loaded"
-}
+export const loadCalls = createAction('[Calls] load calls');
+export const callsLoaded = createAction('[Calls] calls loaded', (calls: Call[]) => ({calls}));
 
-export class LoadCallsAction implements Action {
-  readonly type = CallsActionTypes.loadCalls;
-}
-
-export class CallsLoadedAction implements Action {
-  readonly type = CallsActionTypes.callsLoaded;
-
-  constructor(
-      public payload: Call[]
-  ) {}
-}
-
-export type CallsActions =
-    | LoadCallsAction
-    | CallsLoadedAction;
+const all = union({callsLoaded, loadCalls});
+export type CallsActions = typeof all;

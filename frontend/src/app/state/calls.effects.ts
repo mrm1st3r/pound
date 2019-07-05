@@ -1,6 +1,6 @@
 import {Actions, Effect, ofType} from "@ngrx/effects";
 import {CallControllerService} from "../../../src-gen";
-import {CallsActionTypes, CallsLoadedAction} from "./calls.actions";
+import {callsLoaded, loadCalls} from "./calls.actions";
 import {flatMap, map} from "rxjs/operators";
 import {Injectable} from "@angular/core";
 
@@ -14,8 +14,8 @@ export class CallsEffects  {
 
   @Effect()
   loadCalls = this.actions.pipe(
-      ofType(CallsActionTypes.loadCalls),
+      ofType(loadCalls),
       flatMap(() => this.callService.getCalls()),
-      map((calls) => new CallsLoadedAction(calls))
+      map((calls) => callsLoaded(calls))
   )
 }
