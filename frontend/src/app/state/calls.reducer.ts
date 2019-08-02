@@ -1,6 +1,7 @@
 import {callsLoaded} from "./calls.actions";
 import {Call} from "../../../src-gen";
 import {createReducer, on} from "@ngrx/store";
+import {Action} from "@ngrx/store/src";
 
 export interface CallsState {
   readonly calls: Call[];
@@ -16,6 +17,10 @@ export const reducer = createReducer(initialState,
     )
 );
 
+export function callsReducer(state: CallsState | undefined, action: Action) {
+  return reducer(state, action);
+}
+
 export const reducers = {
-  calls: reducer
+  calls: callsReducer
 };
