@@ -1,7 +1,6 @@
 import {callsLoaded} from "./calls.actions";
 import {Call} from "../../../src-gen";
-import {createReducer, on} from "@ngrx/store";
-import {Action} from "@ngrx/store/src";
+import {Action, createReducer, on} from "@ngrx/store";
 
 export interface CallsState {
   readonly calls: Call[];
