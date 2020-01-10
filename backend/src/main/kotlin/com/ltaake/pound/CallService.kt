@@ -12,9 +12,9 @@ import java.util.*
 @Service
 class CallService(
     private val callRepository: CallRepository,
-    @Value("\${pound.context.incoming}")
+    @Value("\${pound.context.incoming:[]}")
     private val incomingContexts: List<String>,
-    @Value("\${pound.context.outgoing}")
+    @Value("\${pound.context.outgoing:[]}")
     private val outgoingContexts: List<String>
 ) {
 
