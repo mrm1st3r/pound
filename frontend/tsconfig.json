@@ -25,5 +25,8 @@
       "dom"
     ],
     "module": "esnext"
+  },
+  "angularCompilerOptions": {
+    "enableIvy": true
   }
 }
