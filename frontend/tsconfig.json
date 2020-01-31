@@ -9,6 +9,9 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    
     "target": "es2015",
     "typeRoots": [
       "node_modules/@types"
