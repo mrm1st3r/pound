@@ -3,6 +3,7 @@ import {Call} from '../../src-gen';
 import {NGXLogger} from 'ngx-logger';
 import {CallsStoreService} from "./state/calls-store.service";
 import {Observable} from "rxjs";
+import {first} from "rxjs/operators";
 
 @Component({
   selector: 'app-root',
@@ -10,8 +11,10 @@ import {Observable} from "rxjs";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Pound';
-  calls: Observable<Call[]>;
+  readonly displayedColumns = ['number', 'date', 'duration'];
+
+  readonly calls: Observable<Call[]>;
+
   loaded: boolean = false;
 
   constructor(
@@ -21,7 +24,9 @@ export class AppComponent implements OnInit {
     this.calls.subscribe(calls => {
       logger.debug("Loaded " + calls.length + " Calls");
     });
-    this.callsStore.callsLoaded$.subscribe(() => {
+    this.callsStore.callsLoaded$
+        .pipe(first())
+        .subscribe(() => {
           this.loaded = true;
         }
     );
@@ -31,5 +36,11 @@ export class AppComponent implements OnInit {
     this.callsStore.loadCalls();
   }
 
-  displayedColumns = ['direction', 'src', 'dst', 'calldate', 'duration'];
+  relevantNumber(call: Call): string {
+    if (call.direction === 'OUTGOING') {
+      return call.dst;
+    } else {
+      return call.src;
+    }
+  }
 }

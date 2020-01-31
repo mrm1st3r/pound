@@ -1,7 +1,13 @@
-.fa.answered {
+.answered {
   color: #008800;
 }
 
-.fa.no-answer {
+.no-answer {
   color: #cc0000;
+}
+
+mat-icon {
+  font-size: 18px;
+  height: 18px;
+  width: 18px;
 }

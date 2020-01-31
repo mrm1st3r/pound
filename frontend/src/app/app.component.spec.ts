@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { TestBed, async } from '@angular/core/testing';
+import {TestBed, async, ComponentFixture} from '@angular/core/testing';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { AppComponent } from './app.component';
 import { SERVICE_MOCKS } from '../mocks';
@@ -15,7 +15,8 @@ import {CallIconComponent} from "./call-icon/call-icon.component";
 
 describe('AppComponent', () => {
 
-  let fixture, component;
+  let fixture: ComponentFixture<AppComponent>;
+  let component: AppComponent;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -45,13 +46,9 @@ describe('AppComponent', () => {
     expect(component).toBeTruthy();
   }));
 
-  it(`should have as title 'Pound'`, async(() => {
-    expect(component.title).toEqual('Pound');
-  }));
-
   it('should render title in a h1 tag', async(() => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('mat-toolbar span').textContent).toContain('Pound');
+    expect(compiled.querySelector('mat-toolbar span').textContent).toContain('#pound');
   }));
 });

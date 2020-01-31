@@ -16,7 +16,14 @@ describe('CallIconComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CallIconComponent);
     component = fixture.componentInstance;
-    component.call = {};
+    component.call = {
+      direction: 'OUTGOING',
+      disposition: 'ANSWERED',
+      calldate: '',
+      dst: '123',
+      src: '456',
+      duration: 2
+    };
     fixture.detectChanges();
   });
 

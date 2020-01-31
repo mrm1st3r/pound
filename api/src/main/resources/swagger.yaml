@@ -59,6 +59,13 @@ paths:
 definitions:
   Call:
     type: object
+    required:
+      - calldate
+      - src
+      - dst
+      - duration
+      - disposition
+      - direction
     properties:
       calldate:
         type: string

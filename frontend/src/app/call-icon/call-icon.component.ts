@@ -11,22 +11,29 @@ export class CallIconComponent {
   @Input()
   public call: Call;
 
-  public iconClasses(): string {
+  public icon(): string {
 
-    let classes = '';
-    if (this.call.direction === "INCOMING") {
-      classes += 'fa-sign-in'
-    } else if (this.call.direction === 'OUTGOING') {
-      classes += 'fa-sign-out'
+    const answered = this.call.disposition === 'ANSWERED';
+    const incoming = this.call.direction === 'INCOMING';
+
+    if (incoming && answered) {
+      return 'call_received'
+    } else if (incoming && !answered) {
+      return 'call_missed';
+    } else if (!incoming && answered) {
+      return 'call_made'
+    } else if (!incoming && !answered) {
+      return 'call_missed_outgoing';
     } else {
-      classes += 'fa-phone'
+      return 'phone'
     }
+  }
 
+  public color(): string {
     if (this.call.disposition === 'ANSWERED') {
-      classes += ' answered'
-    } else if (this.call.disposition === 'NO ANSWER') {
-      classes += ' no-answer'
+      return'answered'
+    } else {
+      return 'no-answer'
     }
-    return classes
   }
 }
