@@ -12,6 +12,9 @@ import { MatTableModule } from "@angular/material/table";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import {MomentModule} from "ngx-moment";
 import {CallIconComponent} from "./call-icon/call-icon.component";
+import {HeaderComponent} from "./header/header.component";
+import {CallHistoryComponent} from "./call-history/call-history.component";
+import {MatIconModule} from "@angular/material/icon";
 
 describe('AppComponent', () => {
 
@@ -27,11 +30,14 @@ describe('AppComponent', () => {
         EffectsModule.forRoot([CallsEffects]),
         MatTableModule,
         MatToolbarModule,
+        MatIconModule,
         MomentModule,
       ],
       declarations: [
         AppComponent,
         CallIconComponent,
+        HeaderComponent,
+        CallHistoryComponent
       ],
       providers: [
           CallsStoreService,

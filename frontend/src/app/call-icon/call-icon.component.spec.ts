@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CallIconComponent } from './call-icon.component';
+import {MatIconModule} from "@angular/material/icon";
 
 describe('CallIconComponent', () => {
   let component: CallIconComponent;
@@ -8,7 +9,10 @@ describe('CallIconComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CallIconComponent ]
+      declarations: [ CallIconComponent ],
+      imports: [
+          MatIconModule
+      ]
     })
     .compileComponents();
   }));
