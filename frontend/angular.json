@@ -167,7 +167,7 @@
       "styleext": "scss"
     },
     "@schematics/angular:directive": {
-      "prefix": "app"
+      "prefix": "pound"
     }
   }
 }

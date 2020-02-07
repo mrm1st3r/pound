@@ -6,9 +6,12 @@ import {NGXLogger} from "ngx-logger";
 import {first} from "rxjs/operators";
 
 @Component({
-  selector: 'app-call-history',
+  selector: 'pound-call-history',
   templateUrl: './call-history.component.html',
-  styleUrls: ['./call-history.component.css']
+  styleUrls: ['./call-history.component.css'],
+  host: {
+    '[class.pound-call-history]': 'true'
+  }
 })
 export class CallHistoryComponent implements OnInit {
   readonly displayedColumns = ['number', 'date', 'duration'];

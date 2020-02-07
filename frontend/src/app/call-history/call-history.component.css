@@ -1,7 +1,10 @@
-.call-table {
-  margin: 10pt auto 0 auto;
+h1 {
+  padding-left :24px;
 }
 
+.call-table {
+  width: 100%;
+}
 .call-table td:not(:first-child),
 .call-table th:not(:first-child) {
   padding-left: 40px;
