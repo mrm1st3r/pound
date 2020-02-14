@@ -1,4 +1,5 @@
-<h1 class="mat-h1">Call History</h1>
+<div class="pound-call-history">
+<span class="heading mat-display-2">Call History</span>
 
 <table mat-table *ngIf="loaded" [dataSource]="calls" class="call-table">
 
@@ -24,3 +25,4 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
 </table>
+</div>

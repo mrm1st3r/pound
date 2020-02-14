@@ -1,0 +1,25 @@
+.heading {
+  padding-left :24px;
+}
+
+@media (max-width: 800px) {
+  .pound-call-history {
+    width: 100%;
+  }
+}
+
+@media (min-width: 801px) {
+  .pound-call-history {
+    width: 800px;
+    margin: 0 auto;
+  }
+}
+
+.call-table {
+  width: 100%;
+}
+
+.call-table td:not(:first-child),
+.call-table th:not(:first-child) {
+  padding-left: 40px;
+}

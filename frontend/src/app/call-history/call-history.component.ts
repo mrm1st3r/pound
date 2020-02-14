@@ -8,7 +8,7 @@ import {first} from "rxjs/operators";
 @Component({
   selector: 'pound-call-history',
   templateUrl: './call-history.component.html',
-  styleUrls: ['./call-history.component.css'],
+  styleUrls: ['./call-history.component.scss'],
   host: {
     '[class.pound-call-history]': 'true'
   }
