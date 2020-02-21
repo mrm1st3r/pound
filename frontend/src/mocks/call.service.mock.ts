@@ -1,7 +1,9 @@
 import { CallControllerService } from '../../src-gen';
 import {Observable, of} from "rxjs";
+import {Injectable} from "@angular/core";
 
 
+@Injectable()
 export class CallControllerServiceMock extends CallControllerService {
 
   getCalls(disposition?: string, calldate?: Date, offset?: number, limit?: number, observe: any = 'body', reportProgress?: boolean): Observable<any> {
