@@ -4,9 +4,9 @@
   <mat-list>
     <mat-list-item *ngFor="let call of (calls$ | async)">
       <mat-icon matListIcon class="{{color(call)}}">{{icon(call)}}</mat-icon>
-      <h4 matLine>{{relevantNumber(call)}}</h4>
+      <h4 matLine>{{call.number}}</h4>
       <p matLine>
-        <span matTooltip="{{call.calldate | date:'medium'}}">{{call.calldate | amTimeAgo}}</span>
+        <span matTooltip="{{call.date | date:'medium'}}">{{call.date | amTimeAgo}}</span>
         ({{call.duration | amDuration:'seconds'}})
       </p>
     </mat-list-item>

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
-import {Call} from "../../../src-gen";
 import {CallsStoreService} from "../state/calls-store.service";
 import {NGXLogger} from "ngx-logger";
 import {first} from "rxjs/operators";
+import {CallHistoryStoreService} from "./state/call-history-store.service";
+import {CallHistoryEntry, isIncoming} from "./state/call-history.model";
 
 @Component({
   selector: 'pound-call-history',
@@ -15,14 +16,15 @@ import {first} from "rxjs/operators";
 })
 export class CallHistoryComponent implements OnInit {
 
-  readonly calls$: Observable<Call[]>;
+  readonly calls$: Observable<CallHistoryEntry[]>;
 
   loaded: boolean = false;
 
   constructor(
       private callsStore: CallsStoreService,
+      private historyStore: CallHistoryStoreService,
       private logger: NGXLogger) {
-    this.calls$ = callsStore.allCalls();
+    this.calls$ = historyStore.selectCallHistory();
     this.callsStore.callsLoaded$
         .pipe(first())
         .subscribe(() => {
@@ -35,38 +37,25 @@ export class CallHistoryComponent implements OnInit {
     this.callsStore.loadCalls();
   }
 
-  relevantNumber(call: Call): string {
-    if (call.direction === 'OUTGOING') {
-      return call.dst;
-    } else {
-      return call.src;
-    }
+  public icon(call: CallHistoryEntry): string {
+    return determineCallIcon(isIncoming(call), call.answered)
   }
 
-  public icon(call: Call): string {
-
-    const answered = call.disposition === 'ANSWERED';
-    const incoming = call.direction === 'INCOMING';
-
-    if (incoming && answered) {
-      return 'call_received'
-    } else if (incoming && !answered) {
-      return 'call_missed';
-    } else if (!incoming && answered) {
-      return 'call_made'
-    } else if (!incoming && !answered) {
-      return 'call_missed_outgoing';
-    } else {
-      return 'phone'
-    }
+  public color(call: CallHistoryEntry): string {
+    return call.answered ? 'answered' : 'no-answer';
   }
+}
 
-  public color(call: Call): string {
-    if (call.disposition === 'ANSWERED') {
-      return'answered'
-    } else {
-      return 'no-answer'
-    }
+function determineCallIcon(incoming: boolean, answered: boolean): string {
+  if (incoming && answered) {
+    return 'call_received'
+  } else if (incoming && !answered) {
+    return 'call_missed';
+  } else if (!incoming && answered) {
+    return 'call_made'
+  } else if (!incoming && !answered) {
+    return 'call_missed_outgoing';
+  } else {
+    return 'phone'
   }
-
 }
