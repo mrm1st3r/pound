@@ -1,0 +1,15 @@
+@import '~scss/variables';
+
+.header-toolbar {
+  align-items: center;
+}
+
+.header-content {
+  width: $desktop-content-width;
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .header-content {
+    width: 100%;
+  }
+}

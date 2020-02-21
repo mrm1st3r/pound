@@ -1,0 +1,22 @@
+@import '~scss/variables';
+
+pound-header {
+  z-index: 4;
+  position: fixed;
+  width: 100%;
+}
+
+.pound-content {
+  background: #fff;
+  display: block;
+  width: $desktop-content-width;
+  margin: 0 auto;
+  padding-top: $header-height + $margin-vertical;
+  z-index: 0;
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .pound-content {
+    width: 100%;
+  }
+}

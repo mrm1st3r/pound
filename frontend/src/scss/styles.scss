@@ -1,4 +1,12 @@
 @import 'variables';
 @import 'theme';
 html, body { height: 100%; }
-body { margin: 0; font-family: 'Roboto', sans-serif; }
+body {
+  background: #ddd;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  padding-left: $grid-margin;
+}
