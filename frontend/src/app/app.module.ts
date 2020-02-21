@@ -7,26 +7,16 @@ import {LoggerModule, NgxLoggerLevel} from 'ngx-logger';
 import {AppComponent} from './app.component';
 import {ApiModule} from '../../src-gen';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {LayoutModule} from '@angular/cdk/layout';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatSortModule } from '@angular/material/sort';
-import { MatTableModule } from '@angular/material/table';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatToolbarModule} from '@angular/material/toolbar';
 import {ActionReducer, StoreModule} from "@ngrx/store";
 import {reducers} from "./state/calls.reducer";
 import {EffectsModule} from "@ngrx/effects";
 import {CallsEffects} from "./state/calls.effects";
 import {CallsStoreService} from "./state/calls-store.service";
 import {environment} from "../environments/environment";
-import {MomentModule} from "ngx-moment";
 import {AppState} from "./app.state";
-import { HeaderComponent } from './header/header.component';
-import { CallHistoryComponent } from './call-history/call-history.component';
-import {MatTooltipModule} from "@angular/material/tooltip";
+import {HeaderComponent} from './header/header.component';
+import {CallHistoryModule} from "./call-history/call-history.module";
 
 export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState> {
   return (state: AppState, action: any): any => {
@@ -47,26 +37,18 @@ const metaReducers = [logger];
   declarations: [
     AppComponent,
     HeaderComponent,
-    CallHistoryComponent
   ],
   imports: [
     BrowserModule,
     LoggerModule.forRoot({level: NgxLoggerLevel.DEBUG, serverLogLevel: NgxLoggerLevel.OFF}),
     ApiModule,
     BrowserAnimationsModule,
-    LayoutModule,
     MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatTooltipModule,
-    MomentModule,
     StoreModule.forRoot(reducers, {metaReducers}),
-    EffectsModule.forRoot([CallsEffects])
+    EffectsModule.forRoot([CallsEffects]),
+
+    // App Features
+    CallHistoryModule
   ],
   providers: [
       CallsStoreService,

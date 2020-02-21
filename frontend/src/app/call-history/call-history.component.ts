@@ -14,7 +14,6 @@ import {first} from "rxjs/operators";
   }
 })
 export class CallHistoryComponent implements OnInit {
-  readonly displayedColumns = ['number', 'date', 'duration'];
 
   readonly calls$: Observable<Call[]>;
 

@@ -1,4 +1,3 @@
-import {HttpClientModule} from '@angular/common/http';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {LoggerModule, NgxLoggerLevel} from 'ngx-logger';
 import {AppComponent} from './app.component';
@@ -8,13 +7,18 @@ import {StoreModule} from "@ngrx/store";
 import {reducers} from "./state/calls.reducer";
 import {EffectsModule} from "@ngrx/effects";
 import {CallsEffects} from "./state/calls.effects";
-import {MatTableModule} from "@angular/material/table";
 import {MatToolbarModule} from "@angular/material/toolbar";
-import {MomentModule} from "ngx-moment";
 import {HeaderComponent} from "./header/header.component";
-import {CallHistoryComponent} from "./call-history/call-history.component";
-import {MatIconModule} from "@angular/material/icon";
-import {MatListModule} from "@angular/material/list";
+import {Component} from "@angular/core";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+
+@Component({
+  selector: 'pound-call-history',
+  template: '<p>call history</p>'
+})
+class MockCallHistory {
+
+}
 
 describe('AppComponent', () => {
 
@@ -24,20 +28,16 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        HttpClientModule,
+        HttpClientTestingModule,
         LoggerModule.forRoot({level: NgxLoggerLevel.DEBUG, serverLogLevel: NgxLoggerLevel.OFF}),
         StoreModule.forRoot(reducers),
         EffectsModule.forRoot([CallsEffects]),
-        MatTableModule,
         MatToolbarModule,
-        MatListModule,
-        MatIconModule,
-        MomentModule,
       ],
       declarations: [
         AppComponent,
         HeaderComponent,
-        CallHistoryComponent
+        MockCallHistory
       ],
       providers: [
           CallsStoreService,
