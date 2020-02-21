@@ -16,14 +16,14 @@ import {first} from "rxjs/operators";
 export class CallHistoryComponent implements OnInit {
   readonly displayedColumns = ['number', 'date', 'duration'];
 
-  readonly calls: Observable<Call[]>;
+  readonly calls$: Observable<Call[]>;
 
   loaded: boolean = false;
 
   constructor(
       private callsStore: CallsStoreService,
       private logger: NGXLogger) {
-    this.calls = callsStore.allCalls();
+    this.calls$ = callsStore.allCalls();
     this.callsStore.callsLoaded$
         .pipe(first())
         .subscribe(() => {
@@ -43,4 +43,31 @@ export class CallHistoryComponent implements OnInit {
       return call.src;
     }
   }
+
+  public icon(call: Call): string {
+
+    const answered = call.disposition === 'ANSWERED';
+    const incoming = call.direction === 'INCOMING';
+
+    if (incoming && answered) {
+      return 'call_received'
+    } else if (incoming && !answered) {
+      return 'call_missed';
+    } else if (!incoming && answered) {
+      return 'call_made'
+    } else if (!incoming && !answered) {
+      return 'call_missed_outgoing';
+    } else {
+      return 'phone'
+    }
+  }
+
+  public color(call: Call): string {
+    if (call.disposition === 'ANSWERED') {
+      return'answered'
+    } else {
+      return 'no-answer'
+    }
+  }
+
 }

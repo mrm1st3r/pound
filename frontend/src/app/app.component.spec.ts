@@ -1,20 +1,20 @@
-import { HttpClientModule } from '@angular/common/http';
-import {TestBed, async, ComponentFixture} from '@angular/core/testing';
-import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
-import { AppComponent } from './app.component';
-import { SERVICE_MOCKS } from '../mocks';
+import {HttpClientModule} from '@angular/common/http';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {LoggerModule, NgxLoggerLevel} from 'ngx-logger';
+import {AppComponent} from './app.component';
+import {SERVICE_MOCKS} from '../mocks';
 import {CallsStoreService} from "./state/calls-store.service";
 import {StoreModule} from "@ngrx/store";
 import {reducers} from "./state/calls.reducer";
 import {EffectsModule} from "@ngrx/effects";
 import {CallsEffects} from "./state/calls.effects";
-import { MatTableModule } from "@angular/material/table";
-import { MatToolbarModule } from "@angular/material/toolbar";
+import {MatTableModule} from "@angular/material/table";
+import {MatToolbarModule} from "@angular/material/toolbar";
 import {MomentModule} from "ngx-moment";
-import {CallIconComponent} from "./call-icon/call-icon.component";
 import {HeaderComponent} from "./header/header.component";
 import {CallHistoryComponent} from "./call-history/call-history.component";
 import {MatIconModule} from "@angular/material/icon";
+import {MatListModule} from "@angular/material/list";
 
 describe('AppComponent', () => {
 
@@ -30,12 +30,12 @@ describe('AppComponent', () => {
         EffectsModule.forRoot([CallsEffects]),
         MatTableModule,
         MatToolbarModule,
+        MatListModule,
         MatIconModule,
         MomentModule,
       ],
       declarations: [
         AppComponent,
-        CallIconComponent,
         HeaderComponent,
         CallHistoryComponent
       ],

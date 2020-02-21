@@ -1,11 +1,11 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {CallHistoryComponent} from './call-history.component';
-import {MatToolbarModule} from "@angular/material/toolbar";
 import {CallsStoreService} from "../state/calls-store.service";
 import {provideStoreServiceMock} from "@ngxp/store-service/testing";
 import {LoggerModule, NgxLoggerLevel} from "ngx-logger";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {MatListModule} from "@angular/material/list";
 
 describe('CallTableComponent', () => {
   let component: CallHistoryComponent;
@@ -15,7 +15,7 @@ describe('CallTableComponent', () => {
     TestBed.configureTestingModule({
       declarations: [CallHistoryComponent],
       imports: [
-        MatToolbarModule,
+        MatListModule,
         HttpClientTestingModule,
         LoggerModule.forRoot({level: NgxLoggerLevel.DEBUG, serverLogLevel: NgxLoggerLevel.OFF}),
       ],

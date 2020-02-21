@@ -1,28 +1,11 @@
 <div class="pound-call-history">
 <span class="heading mat-display-2">Call History</span>
 
-<table mat-table *ngIf="loaded" [dataSource]="calls" class="call-table">
-
-  <ng-container matColumnDef="number">
-    <th mat-header-cell *matHeaderCellDef>Number</th>
-    <td mat-cell *matCellDef="let element">
-      <pound-call-icon [call]="element"></pound-call-icon>
-      {{element.dst}}
-    </td>
-  </ng-container>
-
-  <ng-container matColumnDef="date">
-    <th mat-header-cell *matHeaderCellDef>Date</th>
-    <td mat-cell *matCellDef="let element">{{element.calldate | amTimeAgo }}</td>
-  </ng-container>
-
-  <ng-container matColumnDef="duration">
-    <th mat-header-cell *matHeaderCellDef>Duration</th>
-    <td mat-cell *matCellDef="let element">{{element.duration | amDuration:'seconds'}}</td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-
-</table>
+  <mat-list>
+    <mat-list-item *ngFor="let call of (calls$ | async)">
+      <mat-icon matListIcon class="{{color(call)}}">{{icon(call)}}</mat-icon>
+      <h4 matLine>{{relevantNumber(call)}}</h4>
+      <p matLine>{{call.calldate | amTimeAgo}} ({{call.duration | amDuration:'seconds'}})</p>
+    </mat-list-item>
+  </mat-list>
 </div>
