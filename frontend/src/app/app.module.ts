@@ -26,6 +26,7 @@ import {MomentModule} from "ngx-moment";
 import {AppState} from "./app.state";
 import { HeaderComponent } from './header/header.component';
 import { CallHistoryComponent } from './call-history/call-history.component';
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState> {
   return (state: AppState, action: any): any => {
@@ -62,6 +63,7 @@ const metaReducers = [logger];
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatTooltipModule,
     MomentModule,
     StoreModule.forRoot(reducers, {metaReducers}),
     EffectsModule.forRoot([CallsEffects])
