@@ -23,3 +23,12 @@ INSERT INTO cdr (src, dst, dcontext, disposition)
 
 INSERT INTO cdr (src, dst, dcontext, disposition)
   VALUES ('12345', '54321', 'context-in', 'ANSWERED');
+
+INSERT INTO cdr (src, dst, dcontext, disposition, calldate)
+VALUES ('12345', '54321', 'context-in', 'ANSWERED', TIMESTAMP '2020-01-15 13:37:42');
+
+INSERT INTO cdr (src, dst, dcontext, disposition, calldate)
+VALUES ('12345', '54321', 'context-in', 'ANSWERED', TIMESTAMP '2020-01-17 06:09:00');
+
+INSERT INTO cdr (src, dst, dcontext, disposition, calldate)
+VALUES ('12345', '54321', 'context-in', 'ANSWERED', TIMESTAMP '2020-01-15 04:20:42');
