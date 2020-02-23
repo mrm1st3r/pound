@@ -1,0 +1,10 @@
+<h2 class="pound-header mat-h2">Most Called Numbers</h2>
+<mat-list>
+  <mat-list-item *ngFor="let call of (calls$ | async)">
+    <mat-icon matListIcon>person</mat-icon>
+    <h4 matLine>{{call.number}}</h4>
+    <p matLine>
+      {{call.duration | amDuration:'seconds'}} total
+    </p>
+  </mat-list-item>
+</mat-list>
