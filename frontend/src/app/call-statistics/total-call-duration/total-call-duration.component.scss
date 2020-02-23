@@ -1,0 +1,11 @@
+@import "~scss/styles";
+
+.mat-list .mat-list-item .amount {
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 500;
+
+  &.totalAmount {
+    font-size: 20px;
+  }
+}

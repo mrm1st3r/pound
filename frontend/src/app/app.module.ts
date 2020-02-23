@@ -17,6 +17,8 @@ import {environment} from "../environments/environment";
 import {AppState} from "./app.state";
 import {HeaderComponent} from './header/header.component';
 import {CallHistoryModule} from "./call-history/call-history.module";
+import {MatDividerModule} from "@angular/material/divider";
+import {CallStatisticsModule} from "./call-statistics/call-statistics.module";
 
 export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState> {
   return (state: AppState, action: any): any => {
@@ -38,18 +40,20 @@ const metaReducers = [logger];
     AppComponent,
     HeaderComponent,
   ],
-  imports: [
-    BrowserModule,
-    LoggerModule.forRoot({level: NgxLoggerLevel.DEBUG, serverLogLevel: NgxLoggerLevel.OFF}),
-    ApiModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    StoreModule.forRoot(reducers, {metaReducers}),
-    EffectsModule.forRoot([CallsEffects]),
+    imports: [
+        BrowserModule,
+        LoggerModule.forRoot({level: NgxLoggerLevel.DEBUG, serverLogLevel: NgxLoggerLevel.OFF}),
+        ApiModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatDividerModule,
+        StoreModule.forRoot(reducers, {metaReducers}),
+        EffectsModule.forRoot([CallsEffects]),
 
-    // App Features
-    CallHistoryModule
-  ],
+        // App Features
+        CallHistoryModule,
+        CallStatisticsModule,
+    ],
   providers: [
       CallsStoreService,
     { provide: backendUrl, useValue: environment.backendUrl },

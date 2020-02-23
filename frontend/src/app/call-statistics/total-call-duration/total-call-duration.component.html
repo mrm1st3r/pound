@@ -1,2 +1,19 @@
-<h2>Total Call Duration</h2>
+<mat-list class="mat-typography">
+  <mat-list-item>
+    <mat-icon matListIcon>phone</mat-icon>
+    <h2 class="amount totalAmount" matLine>{{totalDuration | async | amDuration: 'seconds'}}</h2>
+    <p class="totalCaption" matLine>Total</p>
+  </mat-list-item>
 
+  <mat-list-item>
+    <mat-icon matListIcon>call_received</mat-icon>
+    <h2 class="amount" matLine>{{incomingDuration | async | amDuration: 'seconds'}}</h2>
+    <p class="totalCaption" matLine>Incoming</p>
+  </mat-list-item>
+
+  <mat-list-item>
+    <mat-icon matListIcon>call_made</mat-icon>
+    <h2 class="amount" matLine>{{outgoingDuration | async | amDuration: 'seconds'}}</h2>
+    <p class="totalCaption" matLine>Outgoing</p>
+  </mat-list-item>
+</mat-list>
