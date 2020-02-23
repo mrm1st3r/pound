@@ -6,13 +6,24 @@ pound-header {
   width: 100%;
 }
 
+$content-top-offset: $header-height + $margin-vertical;
+
 .pound-content {
   background: #fff;
   display: block;
   width: $desktop-content-width;
+  height: calc(100% - #{$content-top-offset});
   margin: 0 auto;
-  padding-top: $header-height + $margin-vertical;
+  padding-top: $content-top-offset;
   z-index: 0;
+
+  mat-grid-list {
+    height: calc(100% - #{$content-top-offset});
+
+    .grid-item {
+      height: 400px;
+    }
+  }
 }
 
 @media (max-width: $breakpoint-mobile) {

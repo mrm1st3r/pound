@@ -1,13 +1,15 @@
 <pound-header></pound-header>
 <div class="pound-content">
-  <div class="content-rows">
+  <mat-grid-list cols="3" rowHeight="400">
 
-    <pound-call-history class="row-item"></pound-call-history>
-    <mat-divider vertical></mat-divider>
-
-    <pound-call-partners></pound-call-partners>
-    <mat-divider vertical></mat-divider>
-
-    <pound-total-call-duration></pound-total-call-duration>
-  </div>
+    <mat-grid-tile>
+      <pound-call-history class="grid-item"></pound-call-history>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <pound-call-partners class="grid-item"></pound-call-partners>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <pound-total-call-duration class="grid-item"></pound-total-call-duration>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>
