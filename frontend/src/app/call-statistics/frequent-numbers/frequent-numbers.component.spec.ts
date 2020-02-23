@@ -2,6 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FrequentNumbersComponent } from './frequent-numbers.component';
 import {MomentModule} from "ngx-moment";
+import {provideStoreServiceMock} from "@ngxp/store-service/testing";
+import {CallStatisticsStoreService} from "../state/call-statistics-store.service";
 
 describe('FrequentNumbersComponent', () => {
   let component: FrequentNumbersComponent;
@@ -11,6 +13,9 @@ describe('FrequentNumbersComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         MomentModule
+      ],
+      providers: [
+        provideStoreServiceMock(CallStatisticsStoreService)
       ],
       declarations: [ FrequentNumbersComponent ]
     })

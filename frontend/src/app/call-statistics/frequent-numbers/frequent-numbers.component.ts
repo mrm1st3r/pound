@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {of} from "rxjs";
+import {Component, OnInit} from '@angular/core';
+import {Observable} from "rxjs";
+import {CallStatisticsStoreService} from "../state/call-statistics-store.service";
+import {FrequentlyCalledNumber} from "../state/call-statistics.model";
 
 @Component({
   selector: 'pound-frequent-numbers',
@@ -8,16 +10,12 @@ import {of} from "rxjs";
 })
 export class FrequentNumbersComponent implements OnInit {
 
-  public calls$ = of([
-    {number: '12345', duration: 5238},
-    {number: '12346', duration: 2127},
-    {number: '12348', duration: 420},
-    {number: '12347', duration: 69},
-  ]);
+  public calls$: Observable<FrequentlyCalledNumber[]>;
 
-  constructor() { }
+  constructor(private callsStatisticsStore: CallStatisticsStoreService) { }
 
   ngOnInit(): void {
+    this.calls$ = this.callsStatisticsStore.selectFrequentNumbers();
   }
 
 }
