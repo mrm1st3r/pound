@@ -5,7 +5,6 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {MomentModule} from "ngx-moment";
 import {CommonModule} from "@angular/common";
-import {CallHistoryStoreService} from "./state/call-history-store.service";
 
 @NgModule({
   declarations: [CallHistoryComponent],
@@ -15,9 +14,6 @@ import {CallHistoryStoreService} from "./state/call-history-store.service";
       MatIconModule,
       MatTooltipModule,
       MomentModule
-  ],
-  providers: [
-      CallHistoryStoreService
   ],
   exports: [
       CallHistoryComponent

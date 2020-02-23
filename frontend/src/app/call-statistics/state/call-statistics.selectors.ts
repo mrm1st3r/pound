@@ -1,7 +1,7 @@
 import {createSelector} from "@ngrx/store";
 import {selectCallsFeature} from "../../state/calls.selector";
 import {CallsState} from "../../state/calls.reducer";
-import {Call} from "../../../../src-gen";
+import {Call} from "../../state/calls.model";
 
 function sumDurationWhere(condition: (call: Call) => boolean) {
   return (state: CallsState) => state.calls

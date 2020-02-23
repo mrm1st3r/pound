@@ -1,10 +1,12 @@
-import {createSelector} from "@ngrx/store";
-import {createFeatureSelector} from "@ngrx/store";
+import {createFeatureSelector, createSelector} from "@ngrx/store";
 import {CallsState} from "./calls.reducer";
+import {Call} from "./calls.model";
 
 export const selectCallsFeature = createFeatureSelector<CallsState>('calls');
 
-export const getCallsSelector = createSelector(
+export const selectCallHistory = createSelector(
     selectCallsFeature,
-    state => state.calls
+    (state: CallsState): Call[] => {
+      return state.calls
+    }
 );

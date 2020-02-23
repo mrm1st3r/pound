@@ -1,18 +1,16 @@
-import {async} from '@angular/core/testing';
 import {reducer} from "./calls.reducer";
 import {callsLoaded} from "./calls.actions";
-import {Call} from "../../../src-gen";
+import {Call} from "./calls.model";
 
 describe('CallsReducer', () => {
 
-  it('should load new calls', async(() => {
+  it('should load new calls', () => {
     // given:
     const testArray: Call[] = [{
-      dst: '12345',
-      src: '678',
+      number: '12345',
       duration: 0,
-      calldate: '',
-      disposition: 'ANSWERED',
+      date: '',
+      answered: true,
       direction: 'OUTGOING'
     }];
     const action = callsLoaded(testArray);
@@ -22,5 +20,5 @@ describe('CallsReducer', () => {
 
     // then:
     expect(actual).toEqual({calls: testArray});
-  }));
+  });
 });
