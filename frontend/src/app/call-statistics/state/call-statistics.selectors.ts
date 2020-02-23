@@ -36,11 +36,14 @@ export const selectTotalDuration = createSelector(
  * Frequent numbers
  */
 
+const maximumFrequentNumbers = 5;
+
 export const selectFrequentNumbers = createSelector<AppState, CallsState, FrequentlyCalledNumber[]>(
     selectCallsFeature,
     (state: CallsState) => Object.entries(durationMappedByNumber(state.calls))
         .map(([number, duration]) => frequentlyCalledNumber(number, duration))
         .sort((a, b) => b.duration - a.duration)
+        .slice(0, maximumFrequentNumbers)
 );
 
 function durationMappedByNumber(calls: Call[]): { [number: string]: number } {
