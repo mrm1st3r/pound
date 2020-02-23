@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {of} from "rxjs";
 
 @Component({
-  selector: 'pound-call-partners',
-  templateUrl: './call-partners.component.html',
-  styleUrls: ['./call-partners.component.scss']
+  selector: 'pound-frequent-numbers',
+  templateUrl: './frequent-numbers.component.html',
+  styleUrls: ['./frequent-numbers.component.scss']
 })
-export class CallPartnersComponent implements OnInit {
+export class FrequentNumbersComponent implements OnInit {
 
   public calls$ = of([
     {number: '12345', duration: 5238},

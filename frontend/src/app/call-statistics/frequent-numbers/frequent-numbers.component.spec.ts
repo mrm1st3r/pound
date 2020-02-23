@@ -1,24 +1,24 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CallPartnersComponent } from './call-partners.component';
+import { FrequentNumbersComponent } from './frequent-numbers.component';
 import {MomentModule} from "ngx-moment";
 
-describe('CallPartnersComponent', () => {
-  let component: CallPartnersComponent;
-  let fixture: ComponentFixture<CallPartnersComponent>;
+describe('FrequentNumbersComponent', () => {
+  let component: FrequentNumbersComponent;
+  let fixture: ComponentFixture<FrequentNumbersComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         MomentModule
       ],
-      declarations: [ CallPartnersComponent ]
+      declarations: [ FrequentNumbersComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CallPartnersComponent);
+    fixture = TestBed.createComponent(FrequentNumbersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

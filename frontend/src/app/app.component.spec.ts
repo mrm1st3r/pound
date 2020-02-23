@@ -30,7 +30,7 @@ class MockDuration {
 }
 
 @Component({
-  selector: 'pound-call-partners',
+  selector: 'pound-frequent-numbers',
   template: '<p>call history</p>'
 })
 class MockFrequentNumbers {

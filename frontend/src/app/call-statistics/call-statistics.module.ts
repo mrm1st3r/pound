@@ -5,13 +5,13 @@ import {CallStatisticsStoreService} from "./state/call-statistics-store.service"
 import {MomentModule} from "ngx-moment";
 import {MatListModule} from "@angular/material/list";
 import {MatIconModule} from "@angular/material/icon";
-import {CallPartnersComponent} from './call-partners/call-partners.component';
+import {FrequentNumbersComponent} from './frequent-numbers/frequent-numbers.component';
 
 
 @NgModule({
   declarations: [
     TotalCallDurationComponent,
-    CallPartnersComponent
+    FrequentNumbersComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +24,7 @@ import {CallPartnersComponent} from './call-partners/call-partners.component';
   ],
   exports: [
     TotalCallDurationComponent,
-    CallPartnersComponent
+    FrequentNumbersComponent
   ]
 })
 export class CallStatisticsModule { }
