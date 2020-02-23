@@ -11,12 +11,29 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {HeaderComponent} from "./header/header.component";
 import {Component} from "@angular/core";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 @Component({
   selector: 'pound-call-history',
   template: '<p>call history</p>'
 })
 class MockCallHistory {
+
+}
+
+@Component({
+  selector: 'pound-total-call-duration',
+  template: '<p>call history</p>'
+})
+class MockDuration {
+
+}
+
+@Component({
+  selector: 'pound-call-partners',
+  template: '<p>call history</p>'
+})
+class MockFrequentNumbers {
 
 }
 
@@ -33,11 +50,14 @@ describe('AppComponent', () => {
         StoreModule.forRoot(reducers),
         EffectsModule.forRoot([CallsEffects]),
         MatToolbarModule,
+        MatGridListModule
       ],
       declarations: [
         AppComponent,
         HeaderComponent,
-        MockCallHistory
+        MockCallHistory,
+        MockDuration,
+        MockFrequentNumbers
       ],
       providers: [
           CallsStoreService,

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CallPartnersComponent } from './call-partners.component';
+import {MomentModule} from "ngx-moment";
 
 describe('CallPartnersComponent', () => {
   let component: CallPartnersComponent;
@@ -8,6 +9,9 @@ describe('CallPartnersComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        MomentModule
+      ],
       declarations: [ CallPartnersComponent ]
     })
     .compileComponents();
