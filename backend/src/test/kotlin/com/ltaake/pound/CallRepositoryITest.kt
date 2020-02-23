@@ -22,8 +22,6 @@ class CallRepositoryITest {
         val calls = repository.findAllCalls()
 
         // Then:
-        assertThat(calls).hasSize(2)
-
-
+        assertThat(calls).hasSize(5)
     }
 }
