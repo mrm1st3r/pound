@@ -1,3 +1,4 @@
+<h2 class="pound-header mat-h2">Call History</h2>
 <mat-list>
   <mat-list-item *ngFor="let call of (calls$ | async)">
     <mat-icon matListIcon class="{{color(call)}}">{{icon(call)}}</mat-icon>
