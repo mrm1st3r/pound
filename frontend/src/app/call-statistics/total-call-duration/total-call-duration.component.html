@@ -3,19 +3,19 @@
 <mat-list class="mat-typography">
   <mat-list-item>
     <mat-icon matListIcon>call_received</mat-icon>
-    <h2 class="amount" matLine>{{incomingDuration | async | amDuration: 'seconds'}}</h2>
-    <p class="totalCaption" matLine>Incoming</p>
+    <h4 matLine>{{incomingDuration | async | amDuration: 'seconds'}}</h4>
+    <p matLine>Incoming</p>
   </mat-list-item>
 
   <mat-list-item>
     <mat-icon matListIcon>call_made</mat-icon>
-    <h2 class="amount" matLine>{{outgoingDuration | async | amDuration: 'seconds'}}</h2>
-    <p class="totalCaption" matLine>Outgoing</p>
+    <h4 matLine>{{outgoingDuration | async | amDuration: 'seconds'}}</h4>
+    <p matLine>Outgoing</p>
   </mat-list-item>
 
   <mat-list-item>
     <mat-icon matListIcon>phone</mat-icon>
-    <h2 class="amount" matLine>{{totalDuration | async | amDuration: 'seconds'}}</h2>
-    <p class="totalCaption" matLine>Combined</p>
+    <h4 matLine>{{totalDuration | async | amDuration: 'seconds'}}</h4>
+    <p matLine>Combined</p>
   </mat-list-item>
 </mat-list>
