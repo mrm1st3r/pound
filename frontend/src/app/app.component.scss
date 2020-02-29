@@ -17,6 +17,11 @@ $content-top-offset: $header-height + $margin-vertical;
   padding-top: $content-top-offset;
   z-index: 0;
 
+  pound-missed-calls {
+    display: block;
+    padding-bottom: $margin-vertical * 6;
+  }
+
   mat-grid-list {
     height: calc(100% - #{$content-top-offset});
 

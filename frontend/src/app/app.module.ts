@@ -19,6 +19,7 @@ import {HeaderComponent} from './header/header.component';
 import {CallHistoryModule} from "./call-history/call-history.module";
 import {CallStatisticsModule} from "./call-statistics/call-statistics.module";
 import {MatGridListModule} from "@angular/material/grid-list";
+import {MissedCallsModule} from "./missed-calls/missed-calls.module";
 
 export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState> {
   return (state: AppState, action: any): any => {
@@ -40,20 +41,21 @@ const metaReducers = [logger];
     AppComponent,
     HeaderComponent,
   ],
-  imports: [
-    BrowserModule,
-    LoggerModule.forRoot({level: NgxLoggerLevel.DEBUG, serverLogLevel: NgxLoggerLevel.OFF}),
-    ApiModule,
-    BrowserAnimationsModule,
-    MatGridListModule,
-    MatToolbarModule,
-    StoreModule.forRoot(reducers, {metaReducers}),
-    EffectsModule.forRoot([CallsEffects]),
+    imports: [
+        BrowserModule,
+        LoggerModule.forRoot({level: NgxLoggerLevel.DEBUG, serverLogLevel: NgxLoggerLevel.OFF}),
+        ApiModule,
+        BrowserAnimationsModule,
+        MatGridListModule,
+        MatToolbarModule,
+        StoreModule.forRoot(reducers, {metaReducers}),
+        EffectsModule.forRoot([CallsEffects]),
 
-    // App Features
-    CallHistoryModule,
-    CallStatisticsModule,
-  ],
+        // App Features
+        CallHistoryModule,
+        CallStatisticsModule,
+        MissedCallsModule,
+    ],
   providers: [
       CallsStoreService,
     { provide: backendUrl, useValue: environment.backendUrl },
