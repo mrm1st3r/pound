@@ -1,0 +1,10 @@
+<mat-list>
+  <mat-list-item *ngFor="let call of calls">
+    <mat-icon matListIcon class="{{color(call)}}">{{icon(call)}}</mat-icon>
+    <h4 matLine>{{call.number}}</h4>
+    <p matLine>
+      <span matTooltip="{{call.date | date:'medium'}}">{{call.date | amTimeAgo}}</span>
+      <ng-container *ngIf="call.answered"> ({{call.duration | amDuration:'seconds'}})</ng-container>
+    </p>
+  </mat-list-item>
+</mat-list>

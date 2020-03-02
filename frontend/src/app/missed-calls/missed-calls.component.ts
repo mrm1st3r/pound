@@ -1,6 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {MissedCallsStoreService} from "./state/missed-calls-store.service";
-import * as moment from "moment";
 import {Observable} from "rxjs";
 import {Call} from "../state/calls.model";
 import {map} from "rxjs/operators";

@@ -1,11 +1,3 @@
 <h1 class="pound-header mat-display-3">{{heading$ | async}}</h1>
-<mat-list>
-  <mat-list-item *ngFor="let call of (calls$ | async)">
-    <mat-icon matListIcon >call_missed</mat-icon>
-    <h4 matLine>{{call.number}}</h4>
-    <p matLine>
-      <span matTooltip="{{call.date | date:'medium'}}">{{call.date | amTimeAgo}}</span>
-      ({{call.duration | amDuration:'seconds'}})
-    </p>
-  </mat-list-item>
-</mat-list>
+<pound-call-list [calls]="calls$ | async">
+</pound-call-list>
