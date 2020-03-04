@@ -19,7 +19,8 @@ $content-top-offset: $header-height + $margin-vertical;
 
   pound-missed-calls {
     display: block;
-    padding-bottom: $margin-vertical * 6;
+    padding-bottom: $margin-vertical * 3;
+    padding-top: $margin-vertical * 3;
   }
 
   mat-grid-list {
