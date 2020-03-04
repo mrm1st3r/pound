@@ -1,6 +1,6 @@
 {
   "name": "pound",
-  "version": "0.0.1-SNAPSHOT",
+  "version": "0.1.0",
   "license": "GPL",
   "scripts": {
     "ng": "ng",
