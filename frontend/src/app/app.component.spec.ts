@@ -37,6 +37,22 @@ class MockFrequentNumbers {
 
 }
 
+@Component({
+  selector: 'pound-missed-calls',
+  template: '<p>call history</p>'
+})
+class MockMissedCalls {
+
+}
+
+@Component({
+  selector: 'pound-footer',
+  template: '<p>call history</p>'
+})
+class MockFooter {
+
+}
+
 describe('AppComponent', () => {
 
   let fixture: ComponentFixture<AppComponent>;
@@ -57,7 +73,9 @@ describe('AppComponent', () => {
         HeaderComponent,
         MockCallHistory,
         MockDuration,
-        MockFrequentNumbers
+        MockFrequentNumbers,
+        MockMissedCalls,
+        MockFooter
       ],
       providers: [
           CallsStoreService,

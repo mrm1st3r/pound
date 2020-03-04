@@ -1,6 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MissedCallsComponent } from './missed-calls.component';
+import {provideStoreServiceMock} from "@ngxp/store-service/testing";
+import {MissedCallsStoreService} from "./state/missed-calls-store.service";
+import {Component, Input} from "@angular/core";
+import {Call} from "../state/calls.model";
+
+@Component({
+  selector: 'pound-call-list',
+  template: 'call-list'
+})
+class MockCallListComponent {
+  @Input()
+  calls: Call[];
+}
 
 describe('MissedCallsComponent', () => {
   let component: MissedCallsComponent;
@@ -8,7 +21,13 @@ describe('MissedCallsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MissedCallsComponent ]
+      declarations: [ MissedCallsComponent, MockCallListComponent ],
+      imports: [
+
+      ],
+      providers: [
+          provideStoreServiceMock(MissedCallsStoreService)
+      ]
     })
     .compileComponents();
   }));

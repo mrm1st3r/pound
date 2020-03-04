@@ -6,6 +6,17 @@ import {provideStoreServiceMock} from "@ngxp/store-service/testing";
 import {LoggerModule, NgxLoggerLevel} from "ngx-logger";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {MatListModule} from "@angular/material/list";
+import {Component, Input} from "@angular/core";
+import {Call} from "../state/calls.model";
+
+@Component({
+  selector: 'pound-call-list',
+  template: '<p>call history</p>'
+})
+class MockCallList {
+  @Input()
+  calls: Call[];
+}
 
 describe('CallTableComponent', () => {
   let component: CallHistoryComponent;
@@ -13,7 +24,7 @@ describe('CallTableComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CallHistoryComponent],
+      declarations: [CallHistoryComponent, MockCallList],
       imports: [
         MatListModule,
         HttpClientTestingModule,

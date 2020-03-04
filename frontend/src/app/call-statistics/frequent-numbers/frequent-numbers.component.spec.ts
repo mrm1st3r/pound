@@ -4,6 +4,7 @@ import { FrequentNumbersComponent } from './frequent-numbers.component';
 import {MomentModule} from "ngx-moment";
 import {provideStoreServiceMock} from "@ngxp/store-service/testing";
 import {CallStatisticsStoreService} from "../state/call-statistics-store.service";
+import {MatListModule} from "@angular/material/list";
 
 describe('FrequentNumbersComponent', () => {
   let component: FrequentNumbersComponent;
@@ -12,7 +13,8 @@ describe('FrequentNumbersComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        MomentModule
+        MomentModule,
+        MatListModule
       ],
       providers: [
         provideStoreServiceMock(CallStatisticsStoreService)
