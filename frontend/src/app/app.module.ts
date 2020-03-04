@@ -20,6 +20,7 @@ import {CallHistoryModule} from "./call-history/call-history.module";
 import {CallStatisticsModule} from "./call-statistics/call-statistics.module";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MissedCallsModule} from "./missed-calls/missed-calls.module";
+import { FooterComponent } from './footer/footer.component';
 
 export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState> {
   return (state: AppState, action: any): any => {
@@ -40,6 +41,7 @@ const metaReducers = [logger];
   declarations: [
     AppComponent,
     HeaderComponent,
+    FooterComponent,
   ],
     imports: [
         BrowserModule,
