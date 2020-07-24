@@ -13,7 +13,7 @@ $content-bottom-offset: $footer-height + $margin-vertical;
   background: #fff;
   display: block;
   width: $desktop-content-width;
-  height: calc(100% - #{$content-top-offset + $content-bottom-offset});
+  min-height: calc(100% - #{$content-top-offset + $content-bottom-offset});
   margin: 0 auto;
   padding-top: $content-top-offset;
   z-index: 0;
@@ -30,6 +30,7 @@ $content-bottom-offset: $footer-height + $margin-vertical;
     .grid-item {
       height: 400px;
       width: 100%;
+      overflow: auto;
     }
   }
 }

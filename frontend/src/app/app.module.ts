@@ -21,6 +21,7 @@ import {CallStatisticsModule} from "./call-statistics/call-statistics.module";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MissedCallsModule} from "./missed-calls/missed-calls.module";
 import { FooterComponent } from './footer/footer.component';
+import {MatButtonModule} from "@angular/material/button";
 
 export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState> {
   return (state: AppState, action: any): any => {
@@ -50,6 +51,7 @@ const metaReducers = [logger];
         BrowserAnimationsModule,
         MatGridListModule,
         MatToolbarModule,
+        MatButtonModule,
         StoreModule.forRoot(reducers, {metaReducers}),
         EffectsModule.forRoot([CallsEffects]),
 
