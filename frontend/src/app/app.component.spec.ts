@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {LoggerModule, NgxLoggerLevel} from 'ngx-logger';
 import {AppComponent} from './app.component';
 import {SERVICE_MOCKS} from '../mocks';
@@ -58,7 +58,7 @@ describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
   let component: AppComponent;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule,
@@ -86,11 +86,11 @@ describe('AppComponent', () => {
     component = fixture.debugElement.componentInstance;
   }));
 
-  it('should create the app', async(() => {
+  it('should create the app', waitForAsync(() => {
     expect(component).toBeTruthy();
   }));
 
-  it('should render title in a h1 tag', async(() => {
+  it('should render title in a h1 tag', waitForAsync(() => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('mat-toolbar span').textContent).toContain('#pound');

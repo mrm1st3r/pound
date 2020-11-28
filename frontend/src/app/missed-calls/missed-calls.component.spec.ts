@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MissedCallsComponent } from './missed-calls.component';
 import {provideStoreServiceMock} from "@ngxp/store-service/testing";
@@ -19,7 +19,7 @@ describe('MissedCallsComponent', () => {
   let component: MissedCallsComponent;
   let fixture: ComponentFixture<MissedCallsComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ MissedCallsComponent, MockCallListComponent ],
       imports: [

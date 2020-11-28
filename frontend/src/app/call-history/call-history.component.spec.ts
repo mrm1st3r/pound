@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import {CallHistoryComponent} from './call-history.component';
 import {CallsStoreService} from "../state/calls-store.service";
@@ -22,7 +22,7 @@ describe('CallTableComponent', () => {
   let component: CallHistoryComponent;
   let fixture: ComponentFixture<CallHistoryComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [CallHistoryComponent, MockCallList],
       imports: [

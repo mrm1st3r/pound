@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CallListComponent } from './call-list.component';
 import {MatListModule} from "@angular/material/list";
@@ -7,7 +7,7 @@ describe('CallListComponent', () => {
   let component: CallListComponent;
   let fixture: ComponentFixture<CallListComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ CallListComponent ],
       imports: [

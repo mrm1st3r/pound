@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import {TotalCallDurationComponent} from './total-call-duration.component';
 import {MomentModule} from "ngx-moment";
@@ -11,7 +11,7 @@ describe('TotalCallDurationComponent', () => {
   let component: TotalCallDurationComponent;
   let fixture: ComponentFixture<TotalCallDurationComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
           MomentModule,
