@@ -22,6 +22,7 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import {MissedCallsModule} from "./missed-calls/missed-calls.module";
 import { FooterComponent } from './footer/footer.component';
 import {MatButtonModule} from "@angular/material/button";
+import { HttpClientModule } from '@angular/common/http';
 
 export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState> {
   return (state: AppState, action: any): any => {
@@ -47,6 +48,7 @@ const metaReducers = [logger];
     imports: [
         BrowserModule,
         LoggerModule.forRoot({level: NgxLoggerLevel.DEBUG, serverLogLevel: NgxLoggerLevel.OFF}),
+        HttpClientModule,
         ApiModule,
         BrowserAnimationsModule,
         MatGridListModule,
